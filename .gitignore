@@ -1,0 +1,36 @@
+# Internal agent and planning files
+AGENTS.md
+IGNORE.MD
+*.txt
+to_verify.md
+
+# Internal working assets
+internal-assets/
+working-assets/
+visual-assets/
+comparison-assets/
+dont-create-like-this/
+
+# Temporary and local files
+tmp/
+temp/
+*.tmp
+*.log
+.DS_Store
+Thumbs.db
+
+# Local project instructions and QA tooling
+/dev-instructions/
+/design-qa.md
+/template/design-qa.md
+/package.json
+/package-lock.json
+# Local tooling
+.agents/
+.codex/
+.vscode/
+
+# Dependency/build folders if introduced later
+node_modules/
+dist/
+build/
