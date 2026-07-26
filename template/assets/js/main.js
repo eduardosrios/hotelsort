@@ -84,6 +84,60 @@
     $("[data-testimonial-rating]").text(testimonial.rating);
     $(".guest-voices__rating").attr("aria-label", `Rated ${testimonial.rating} out of 5`);
   });
+  const featuredTestimonials = [
+    {
+      quote: "From the infinity pool to the fine dining, everything felt world class. Truly one of the best stays I've ever found through Hotelsort.",
+      name: "Daniel Brooks",
+      location: "New York, USA"
+    },
+    {
+      quote: "The mountain views were extraordinary, yet the quiet service made the stay unforgettable. Every recommendation felt personal from the moment we arrived.",
+      name: "Sofia Laurent",
+      location: "Lyon, France"
+    },
+    {
+      quote: "Hotelsort found a coastal retreat that balanced privacy, character, and effortless hospitality. It was exactly the escape we hoped to find.",
+      name: "Marcus Reed",
+      location: "London, UK"
+    }
+  ];
+  let featuredTestimonialIndex = 0;
+
+  $("[data-featured-testimonial-nav]").on("click", function () {
+    featuredTestimonialIndex = $(this).data("featured-testimonial-nav") === "next"
+      ? (featuredTestimonialIndex + 1) % featuredTestimonials.length
+      : (featuredTestimonialIndex + featuredTestimonials.length - 1) % featuredTestimonials.length;
+
+    const testimonial = featuredTestimonials[featuredTestimonialIndex];
+    $("[data-featured-testimonial-quote]").text(testimonial.quote);
+    $("[data-featured-testimonial-name]").text(testimonial.name);
+    $("[data-featured-testimonial-location]").text(testimonial.location);
+  });
+  $("[data-gallery-image]").on("click", function () {
+    const imageSrc = $(this).data("gallery-image");
+    const imageTitle = $(this).data("gallery-title");
+    $("[data-gallery-modal-image]").attr("src", imageSrc).attr("alt", imageTitle);
+    $("#galleryModalLabel").text(imageTitle);
+    bootstrap.Modal.getOrCreateInstance(document.getElementById("galleryModal")).show();
+  });
+  $("#diningForm").on("submit", function (event) {
+    event.preventDefault();
+
+    if (!this.checkValidity()) {
+      this.reportValidity();
+      return;
+    }
+
+    const form = this;
+    const $success = $(form).find(".booking-success");
+    $success.prop("hidden", false);
+
+    window.setTimeout(function () {
+      bootstrap.Modal.getOrCreateInstance(document.getElementById("diningModal")).hide();
+      form.reset();
+      $success.prop("hidden", true);
+    }, 1800);
+  });
   $("#insidersForm").on("submit", function (event) {
     event.preventDefault();
 
