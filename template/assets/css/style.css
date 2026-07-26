@@ -7944,3 +7944,10 @@ main textarea,
 .hotelsort-modal textarea {
   min-height: 54px;
 }
+
+/* Final audit normalization: keep ultra-wide non-heading sizes inside approved scale. */
+.hero__story,
+.trending-destinations__meta,
+.trending-destinations__meta b {
+  font-size: 18px !important;
+}
