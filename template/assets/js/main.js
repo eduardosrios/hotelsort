@@ -120,6 +120,53 @@
     $("#galleryModalLabel").text(imageTitle);
     bootstrap.Modal.getOrCreateInstance(document.getElementById("galleryModal")).show();
   });
+  const graceRooms = [
+    {
+      main: "assets/images/body/suite-warm.jpg",
+      detail: "assets/images/body/room-suite-city-view.jpg",
+      mainAlt: "Standard Hotelsort room with warm bedding and architectural calm",
+      detailAlt: "Bright suite lounge with city view and soft neutral palette"
+    },
+    {
+      main: "assets/images/body/suite-calm.jpg",
+      detail: "assets/images/body/room-suite-city-view.jpg",
+      mainAlt: "Superior Hotelsort room with calm bedding and soft morning light",
+      detailAlt: "Polished suite detail with lounge area and generous daylight"
+    },
+    {
+      main: "assets/images/body/room-mountain-view.jpg",
+      detail: "assets/images/body/indoor-pool.jpg",
+      mainAlt: "Junior suite with mountain-facing windows and restful atmosphere",
+      detailAlt: "Indoor wellness pool with glass walls and tranquil lounge chairs"
+    },
+    {
+      main: "assets/images/body/room-suite-city-view.jpg",
+      detail: "assets/images/body/unparalleled-service-sofa-alt.jpg",
+      mainAlt: "Studio apartment suite with city view and comfortable seating",
+      detailAlt: "Textural suite sofa detail in a quiet luxury interior"
+    },
+    {
+      main: "assets/images/body/grand-hotel-exterior.jpg",
+      detail: "assets/images/body/london-hotel-exterior.jpg",
+      mainAlt: "Suite destination with dramatic landscape and private architecture",
+      detailAlt: "Classic hotel exterior with refined urban arrival"
+    }
+  ];
+
+  $("[data-grace-room]").on("click", function () {
+    const $button = $(this);
+    const room = graceRooms[Number($button.data("grace-room"))];
+
+    $("[data-grace-room]").removeClass("is-active").attr("aria-selected", "false");
+    $button.addClass("is-active").attr("aria-selected", "true");
+
+    $("[data-grace-room-main]").fadeTo(100, 0.25, function () {
+      $(this).attr("src", room.main).attr("alt", room.mainAlt).fadeTo(160, 1);
+    });
+    $("[data-grace-room-detail]").fadeTo(100, 0.25, function () {
+      $(this).attr("src", room.detail).attr("alt", room.detailAlt).fadeTo(160, 1);
+    });
+  });
   $("#diningForm").on("submit", function (event) {
     event.preventDefault();
 
