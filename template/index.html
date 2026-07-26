@@ -8,7 +8,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
   <link rel="stylesheet" href="assets/css/style.css">
@@ -29,14 +29,28 @@
 
       <div class="hero__frame">
         <header class="hero__header">
-          <a class="brand" href="#hero" aria-label="Hotelsort home">HOTELSORT</a>
+          <a class="brand" href="#hero" aria-label="Hotelsort home"><img class="brand__symbol" src="assets/images/icons/flaticon-hotel-88967.png" alt="" width="64" height="64" aria-hidden="true"><span>HOTELSORT</span></a>
 
           <nav class="hero__nav" aria-label="Primary navigation">
-            <a href="#hero">Stays</a>
-            <a href="#hero">Wellness</a>
-            <a href="#hero">Dining</a>
-            <a href="#hero">Stories</a>
-            <a href="#hero">About</a>
+            <div class="hero__nav-item hero__nav-item--has-submenu">
+              <a class="hero__nav-link" href="#hero" aria-haspopup="true" aria-expanded="false">Stays <i class="fa-solid fa-chevron-down submenu-chevron submenu-chevron--down" aria-hidden="true"></i><i class="fa-solid fa-chevron-up submenu-chevron submenu-chevron--up" aria-hidden="true"></i></a>
+              <div class="hero__submenu" role="menu" aria-label="Stays submenu">
+                <a href="#room-comfort-title" role="menuitem">Signature rooms</a>
+                <a href="#trending-destinations-title" role="menuitem">Trending destinations</a>
+                <a href="#hotelix-featured-title" role="menuitem">Featured availability</a>
+              </div>
+            </div>
+            <div class="hero__nav-item hero__nav-item--has-submenu">
+              <a class="hero__nav-link" href="#wellness" aria-haspopup="true" aria-expanded="false">Wellness <i class="fa-solid fa-chevron-down submenu-chevron submenu-chevron--down" aria-hidden="true"></i><i class="fa-solid fa-chevron-up submenu-chevron submenu-chevron--up" aria-hidden="true"></i></a>
+              <div class="hero__submenu" role="menu" aria-label="Wellness submenu">
+                <a href="#wellness" role="menuitem">Ritual index</a>
+                <a href="#ritual-index-title" role="menuitem">Spa rituals</a>
+                <a href="#relax" role="menuitem">Thermal pool calm</a>
+              </div>
+            </div>
+            <a class="hero__nav-link" href="#restaurant-story-title">Dining</a>
+            <a class="hero__nav-link" href="#guest-voices-title">Stories</a>
+            <a class="hero__nav-link" href="#arc-about-title">About</a>
           </nav>
 
           <div class="hero__actions">
@@ -81,6 +95,7 @@
           <strong>24</strong><span>+</span>
         </div>
       </div>
+    
     </section>
 
     <section class="wellness-index" id="wellness" aria-labelledby="wellness-index-title" data-section="1">
@@ -111,22 +126,36 @@
           </div>
         </div>
       </div>
+    
     </section>
 
     <section class="relax-banner" id="relax" aria-labelledby="relax-title" data-section="2">
       <img class="relax-banner__image" src="assets/images/body/indoor-pool.jpg" alt="A tranquil indoor hotel pool surrounded by mature greenery" width="2200" height="2933" loading="lazy">
       <div class="relax-banner__veil" aria-hidden="true"></div>
       <div class="relax-banner__content">
-        <p class="relax-banner__kicker">Private pool · natural surroundings · complete calm</p>
+        <p class="relax-banner__kicker">Private pool ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â· natural surroundings ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â· complete calm</p>
         <h2 id="relax-title">Places to relax</h2>
         <p>A peaceful space where water, greenery, and soft light come together in balance. Designed for slow moments, gentle rest, and a deeper sense of calm throughout the day.</p>
         <button class="relax-banner__button" type="button" data-bs-toggle="modal" data-bs-target="#bookingModal">Book your ritual</button>
       </div>
+    
     </section>
+<section class="relax-banner video-variant video-variant--section-2 video-variant--pool-water" id="relax-video" aria-labelledby="relax-title-video" data-section="2-video" data-video-variant="2" data-pexels-video-id="8045184-video">
+      <video class="relax-banner__image section-video" autoplay muted loop playsinline preload="metadata" poster="assets/images/body/indoor-pool.jpg" aria-label="A tranquil indoor hotel pool surrounded by mature greenery"><source src="https://www.pexels.com/download/video/8045184/" type="video/mp4"></video>
+      <div class="relax-banner__veil" aria-hidden="true"></div>
+      <div class="relax-banner__content">
+        <p class="relax-banner__kicker">Private pool ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â· natural surroundings ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â· complete calm</p>
+        <h2 id="relax-title-video">Places to relax</h2>
+        <p>A peaceful space where water, greenery, and soft light come together in balance. Designed for slow moments, gentle rest, and a deeper sense of calm throughout the day.</p>
+        <button class="relax-banner__button" type="button" data-bs-toggle="modal" data-bs-target="#bookingModal">Book your ritual</button>
+      </div>
+    
+    </section>
+
 
     <section class="wellness-stats" aria-labelledby="wellness-stats-title" data-section="3">
       <div class="wellness-stats__heading">
-        <p>Modern spa · fitness · yoga<br>wellness center experience</p>
+        <p>Modern spa ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â· fitness ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â· yoga<br>wellness center experience</p>
         <h2 id="wellness-stats-title">Modern fitness meets a calm spa experience</h2>
       </div>
       <dl class="wellness-stats__grid">
@@ -135,6 +164,7 @@
         <div><dt><span data-stat="95">95</span>%</dt><dd>Guest satisfaction reflecting consistent service and considered surroundings.</dd></div>
         <div><dt><span data-stat="30">30</span>+</dt><dd>Weekly classes spanning fitness, yoga, movement, and guided breathwork.</dd></div>
       </dl>
+    
     </section>
 
     <section class="care-collage" aria-labelledby="care-collage-title" data-section="4">
@@ -142,7 +172,7 @@
         <img src="assets/images/body/wellness-massage.jpg" alt="" width="1800" height="2700" loading="lazy">
         <img src="assets/images/body/suite-warm.jpg" alt="" width="1800" height="1187" loading="lazy">
       </div>
-      <h2 id="care-collage-title"><span>We design every detail</span> of your experience — from the first conversation to the moment you open your doors for the first time.</h2>
+      <h2 id="care-collage-title"><span>We design every detail</span> of your experience ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â from the first conversation to the moment you open your doors for the first time.</h2>
       <div class="care-collage__gallery">
         <figure class="care-collage__feature"><img src="assets/images/hotelsort-hero-wellness-suite.png" alt="A guest drawing back a curtain in a calm wellness suite" width="1536" height="1024" loading="lazy"></figure>
         <div class="care-collage__tiles">
@@ -152,6 +182,7 @@
           <figure><img src="assets/images/body/suite-warm.jpg" alt="Warm hotel room details" width="1800" height="1187" loading="lazy"></figure>
         </div>
       </div>
+    
     </section>
 
     <section class="guest-story" aria-labelledby="guest-story-title" data-section="5">
@@ -160,7 +191,7 @@
         <div>
           <h2 class="visually-hidden" id="guest-story-title">Guest stories</h2>
           <p>Every memorable stay begins with a feeling. We work closely with each hotel to find the spaces that feel intentional, calm, and deeply personal. From arrival to departure, every recommendation is chosen with care.</p>
-          <p>Because we believe the best stays are the ones that feel effortless — where every material, every light, and every moment supports how you want to feel.</p>
+          <p>Because we believe the best stays are the ones that feel effortless ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â where every material, every light, and every moment supports how you want to feel.</p>
         </div>
       </div>
 
@@ -168,18 +199,18 @@
         <div class="carousel-inner">
           <div class="carousel-item active">
             <img class="guest-story__portrait" src="assets/images/body/guest-portrait.jpg" alt="Portrait of Amelia Carter" width="1200" height="800" loading="lazy">
-            <p class="guest-story__byline">Amelia Carter <span>·</span> Wellness consultant</p>
-            <blockquote>“I arrived exhausted and disconnected. I left feeling lighter, calmer, and fully restored.”</blockquote>
+            <p class="guest-story__byline">Amelia Carter <span>ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â·</span> Wellness consultant</p>
+            <blockquote>ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¦ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œI arrived exhausted and disconnected. I left feeling lighter, calmer, and fully restored.ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â</blockquote>
           </div>
           <div class="carousel-item">
             <img class="guest-story__portrait" src="assets/images/body/guest-portrait.jpg" alt="Portrait of Helena Brooks" width="1200" height="800" loading="lazy">
-            <p class="guest-story__byline">Helena Brooks <span>·</span> Creative director</p>
-            <blockquote>“Everything felt unhurried, thoughtful, and quietly beautiful — exactly the reset I needed.”</blockquote>
+            <p class="guest-story__byline">Helena Brooks <span>ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â·</span> Creative director</p>
+            <blockquote>ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¦ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œEverything felt unhurried, thoughtful, and quietly beautiful ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â exactly the reset I needed.ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â</blockquote>
           </div>
           <div class="carousel-item">
             <img class="guest-story__portrait" src="assets/images/body/guest-portrait.jpg" alt="Portrait of Lena Morris" width="1200" height="800" loading="lazy">
-            <p class="guest-story__byline">Lena Morris <span>·</span> Architect</p>
-            <blockquote>“Hotelsort found a place that understood privacy, warmth, and the luxury of doing less.”</blockquote>
+            <p class="guest-story__byline">Lena Morris <span>ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â·</span> Architect</p>
+            <blockquote>ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¦ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œHotelsort found a place that understood privacy, warmth, and the luxury of doing less.ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â</blockquote>
           </div>
         </div>
         <div class="carousel-indicators">
@@ -188,6 +219,7 @@
           <button type="button" data-bs-target="#guestStoryCarousel" data-bs-slide-to="2" aria-label="Guest story 3"></button>
         </div>
       </div>
+    
     </section>
 
     <section class="service-editorial" aria-labelledby="service-editorial-title" data-section="6">
@@ -204,11 +236,13 @@
       <figure class="service-editorial__visual">
         <img src="assets/images/body/unparalleled-service-sofa-alt.jpg" alt="A sculptural sofa in a refined, atmospheric hotel lounge" width="3018" height="3773" loading="lazy">
       </figure>
+    
     </section>
 
     <section class="travel-story" aria-labelledby="travel-story-title" data-section="7">
       <p>Story 1:</p>
       <h2 id="travel-story-title">You missed your train.<br>Ended up somewhere you never planned to be. It felt more right than anything else that week.</h2>
+    
     </section>
 
     <section class="destinations-horizon" aria-labelledby="destinations-horizon-title" data-section="8">
@@ -243,13 +277,14 @@
         </article>
 
         <article class="destination-card destination-card--secondary">
-          <img src="assets/images/body/london-hotel-exterior.jpg" alt="Claridge’s red-brick hotel exterior in Mayfair, London" width="1600" height="1067" loading="lazy">
+          <img src="assets/images/body/london-hotel-exterior.jpg" alt="ClaridgeÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¾ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢s red-brick hotel exterior in Mayfair, London" width="1600" height="1067" loading="lazy">
           <p class="destination-card__location">Mayfair, London</p>
-          <h3>Claridge’s</h3>
+          <h3>ClaridgeÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¾ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢s</h3>
           <p>Art deco character, quiet glamour, and a century of unmistakable London hospitality.</p>
           <a href="#bookingModal" data-bs-toggle="modal" data-bs-target="#bookingModal">Discover the hotel <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i></a>
         </article>
       </div>
+    
     </section>
     <section class="loyalty-benefits" aria-labelledby="loyalty-benefits-title" data-section="9">
       <p class="loyalty-benefits__intro">Hotelsort stays with you, even<br>when you are far from home</p>
@@ -270,16 +305,17 @@
       </figure>
 
       <h2 id="loyalty-benefits-title">Earn points and<br>unlock exclusive<br>benefits</h2>
+    
     </section>
     <section class="escape-gallery" aria-labelledby="escape-gallery-title" data-section="10">
       <header class="escape-gallery__header">
         <h2 id="escape-gallery-title">A <em>Glimpse</em> of Your<br>Escape</h2>
-        <p>Every corner tells a story — of elegance, nature, and unforgettable moments.</p>
+        <p>Every corner tells a story ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â of elegance, nature, and unforgettable moments.</p>
       </header>
 
       <div class="escape-gallery__filters" role="tablist" aria-label="Filter escape gallery">
         <button class="is-active" type="button" role="tab" aria-selected="true" data-escape-filter="all">
-          <i class="fa-solid fa-spa" aria-hidden="true"></i>
+          <img class="flaticon-inline-icon" src="assets/images/icons/flaticon-spa-treatment-53781.png" alt="" width="32" height="32" aria-hidden="true">
           <span>All</span>
         </button>
         <button type="button" role="tab" aria-selected="false" data-escape-filter="suites">Suites</button>
@@ -307,6 +343,7 @@
           <p>Oohlala Steak and Seafood</p>
         </article>
       </div>
+    
     </section>    <section class="insiders-club" aria-labelledby="insiders-club-title" data-section="11">
       <div class="insiders-club__grid" aria-hidden="true"></div>
       <header class="insiders-club__header">
@@ -314,12 +351,13 @@
           <span class="insiders-club__eyebrow">Join Waitlist</span>
           <h2 id="insiders-club-title">Join the Hotelsort Insiders Club!</h2>
         </div>
-        <p>Sign up for our newsletter and receive travel inspiration, exclusive privileges, and personalized recommendations—straight to your inbox.</p>
+        <p>Sign up for our newsletter and receive travel inspiration, exclusive privileges, and personalized recommendationsÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Âstraight to your inbox.</p>
       </header>
       <figure class="insiders-club__visual">
         <img src="assets/images/body/insiders-villa-pool.jpg" alt="A modern tropical villa and illuminated pool at dusk" width="2400" height="1601" loading="lazy">
         <button type="button" data-bs-toggle="modal" data-bs-target="#insidersModal">Join Our Waitlist</button>
       </figure>
+    
     </section>    <section class="guest-voices" aria-labelledby="guest-voices-title" data-section="12">
       <div class="guest-voices__heading">
         <i class="fa-solid fa-quote-left" aria-hidden="true"></i>
@@ -347,6 +385,7 @@
           </div>
         </div>
       </div>
+    
     </section>    <section class="restaurant-story" aria-labelledby="restaurant-story-title" data-section="13">
       <div class="restaurant-story__panel">
         <img class="restaurant-story__hero" src="assets/images/body/restaurant-interior.jpg" alt="Elegant dining room prepared for evening service" width="2400" height="1600" loading="lazy">
@@ -380,32 +419,80 @@
           </div>
         </div>
       </div>
+    
     </section>
+<section class="restaurant-story video-variant video-variant--section-13 video-variant--restaurant-wine" aria-labelledby="restaurant-story-title-video" data-section="13-video" data-video-variant="13" data-pexels-video-id="31387389-video">
+      <div class="restaurant-story__panel">
+        <video class="restaurant-story__hero section-video" autoplay muted loop playsinline preload="metadata" poster="assets/images/body/restaurant-interior.jpg" aria-label="Elegant dining room prepared for evening service"><source src="https://www.pexels.com/download/video/8764786/" type="video/mp4"></video>
 
-    <section class="featured-testimonial" aria-label="Featured guest testimonial" data-section="14">
-      <div class="featured-testimonial__inner">
-        <img class="featured-testimonial__portrait" src="assets/images/body/guest-portrait-male.jpg" alt="Portrait of Hotelsort guest Daniel Brooks" width="1800" height="2542" loading="lazy">
-
-        <div class="featured-testimonial__nav" aria-label="Browse featured guest testimonials">
-          <button type="button" data-featured-testimonial-nav="prev" aria-label="Previous featured testimonial">
-            <i class="fa-solid fa-arrow-left-long" aria-hidden="true"></i>
-          </button>
-          <button type="button" data-featured-testimonial-nav="next" aria-label="Next featured testimonial">
-            <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i>
-          </button>
+        <div class="restaurant-story__intro">
+          <p>Our restaurant blends destination-led dining with the rich, seasonal flavors of each region. Every dish is thoughtfully prepared to offer warmth, authenticity, and modern elegance.</p>
+          <button type="button" data-bs-toggle="modal" data-bs-target="#diningModal">Book a table</button>
         </div>
 
-        <div class="featured-testimonial__content" aria-live="polite">
-          <i class="fa-solid fa-quote-left featured-testimonial__quote-icon" aria-hidden="true"></i>
-          <div class="featured-testimonial__copy">
-            <blockquote data-featured-testimonial-quote>From the infinity pool to the fine dining, everything felt world class. Truly one of the best stays I've ever found through Hotelsort.</blockquote>
-            <h2 data-featured-testimonial-name>Daniel Brooks</h2>
-            <p data-featured-testimonial-location>New York, USA</p>
+        <div class="restaurant-story__marquee" aria-label="Hotelsort restaurant">
+          <div>
+            <span>Restaurant</span><i class="fa-solid fa-fleur-de-lis" aria-hidden="true"></i><span>Hotel</span><i class="fa-solid fa-fleur-de-lis" aria-hidden="true"></i><span>Restaurant</span><i class="fa-solid fa-fleur-de-lis" aria-hidden="true"></i><span>Hotel</span><i class="fa-solid fa-fleur-de-lis" aria-hidden="true"></i><span>Restaurant</span><i class="fa-solid fa-fleur-de-lis" aria-hidden="true"></i><span>Hotel</span>
+          </div>
+        </div>
+
+        <div class="restaurant-story__dishes">
+          <h2 id="restaurant-story-title-video">Some of our best dishes</h2>
+          <div class="restaurant-story__grid">
+            <figure>
+              <video class="section-video" autoplay muted loop playsinline preload="metadata" poster="assets/images/body/dish-crab-pasta.jpg" aria-label="Crab pasta with a delicate cream sauce"><source src="https://www.pexels.com/download/video/8764786/" type="video/mp4"></video>
+              <figcaption>Coastal crab pasta</figcaption>
+            </figure>
+            <figure>
+              <video class="section-video" autoplay muted loop playsinline preload="metadata" poster="assets/images/body/dish-mediterranean.jpg" aria-label="A generous table of colorful Mediterranean dishes"><source src="https://www.pexels.com/download/video/8764786/" type="video/mp4"></video>
+              <figcaption>Mediterranean table</figcaption>
+            </figure>
+            <figure>
+              <video class="section-video" autoplay muted loop playsinline preload="metadata" poster="assets/images/body/escape-seafood.jpg" aria-label="Oysters and seafood served over ice"><source src="https://www.pexels.com/download/video/8764786/" type="video/mp4"></video>
+              <figcaption>Market oysters</figcaption>
+            </figure>
           </div>
         </div>
       </div>
+    
     </section>
 
+
+    <section class="arbany-selection" aria-labelledby="arbany-selection-title" data-section="14">
+      <div class="arbany-selection__frame">
+        <div class="arbany-selection__copy">
+          <p class="arbany-selection__eyebrow">Private collection</p>
+          <h2 id="arbany-selection-title">Rare stays, selected by mood.</h2>
+          <p class="arbany-selection__text">Hotelsort edits every property around atmosphere first: discreet service, confident architecture, and restorative places that feel considered from arrival to last morning.</p>
+          <div class="arbany-selection__meta" aria-label="Collection metrics">
+            <span><strong>42</strong> quiet addresses</span>
+            <span><strong>18</strong> coastal retreats</span>
+          </div>
+          <a class="arbany-selection__button" href="#hero-end">Explore the edit</a>
+        </div>
+
+        <figure class="arbany-selection__visual">
+          <img src="assets/images/body/insiders-villa-pool.jpg" alt="Private resort villa glowing beside a calm pool at dusk" width="2400" height="1601" loading="lazy">
+          <figcaption>
+            <span>Featured mood</span>
+            <strong>Slow luxury by the water</strong>
+          </figcaption>
+        </figure>
+
+        <article class="arbany-selection__card arbany-selection__card--top">
+          <span>01</span>
+          <h3>Waterfront quiet</h3>
+          <p>Low-rise villas, shaded terraces, and private paths to the pool.</p>
+        </article>
+
+        <article class="arbany-selection__card arbany-selection__card--bottom">
+          <span>02</span>
+          <h3>Design-led calm</h3>
+          <p>Architectural stays chosen for texture, silence, and warm natural light.</p>
+        </article>
+      </div>
+    
+    </section>
 
     <section class="room-comfort" aria-labelledby="room-comfort-title" data-section="15">
       <div class="room-comfort__heading">
@@ -435,7 +522,39 @@
           </ul>
         </div>
       </div>
+    
     </section>
+<section class="room-comfort video-variant video-variant--section-15 video-variant--hotel-room" aria-labelledby="room-comfort-title-video" data-section="15-video" data-video-variant="15" data-pexels-video-id="19403230-video">
+      <div class="room-comfort__heading">
+        <p>Rooms</p>
+        <h2 id="room-comfort-title-video">Comfort Redefined.</h2>
+      </div>
+
+      <div class="room-comfort__layout">
+        <div class="room-comfort__copy">
+          <div class="room-comfort__rail" aria-hidden="true"></div>
+          <div class="room-comfort__intro">
+            <h3>01. Summit Loft</h3>
+            <p>Features an open-plan living area, panoramic glass walls, and a spa-inspired bathroom with a soaking tub facing the valley.</p>
+          </div>
+        </div>
+
+        <video class="room-comfort__image room-comfort__image--small section-video" autoplay muted loop playsinline preload="metadata" poster="assets/images/body/room-suite-city-view.jpg" aria-label="Open-plan hotel suite with lounge seating and panoramic windows"><source src="https://www.pexels.com/download/video/19403230/" type="video/mp4"></video>
+        <video class="room-comfort__image room-comfort__image--large section-video" autoplay muted loop playsinline preload="metadata" poster="assets/images/body/room-mountain-view.jpg" aria-label="Mountain-view hotel bedroom with a king-size bed and balcony"><source src="https://www.pexels.com/download/video/19403230/" type="video/mp4"></video>
+
+        <div class="room-comfort__details" aria-label="Summit Loft room details">
+          <p>Details</p>
+          <ul>
+            <li><i class="fa-solid fa-users" aria-hidden="true"></i><span>2 guests</span></li>
+            <li><i class="fa-regular fa-square" aria-hidden="true"></i><span>45 sqm | 485 sq ft</span></li>
+            <li><i class="fa-solid fa-bed" aria-hidden="true"></i><span>1 King-size bed</span></li>
+            <li><i class="fa-solid fa-shield-halved" aria-hidden="true"></i><span>Private balcony with mountain views</span></li>
+          </ul>
+        </div>
+      </div>
+    
+    </section>
+
 
 
     <section class="photo-gallery-wave" aria-labelledby="photo-gallery-wave-title" data-section="16">
@@ -463,6 +582,7 @@
           </button>
         </div>
       </div>
+    
     </section>
 
 
@@ -483,7 +603,28 @@
           <img class="modern-sanctuary__image modern-sanctuary__image--small" src="assets/images/body/loyalty-resort-aerial.jpg" alt="Aerial resort beach and pool destination" width="2400" height="3000" loading="lazy">
         </div>
       </div>
+    
     </section>
+<section class="modern-sanctuary video-variant video-variant--section-17 video-variant--hotel-lobby" aria-labelledby="modern-sanctuary-title-video" data-section="17-video" data-video-variant="17" data-pexels-video-id="29690876-video">
+      <div class="modern-sanctuary__content">
+        <div class="modern-sanctuary__copy">
+          <p class="modern-sanctuary__kicker">The Experience</p>
+          <h2 id="modern-sanctuary-title-video">Sanctuaries for the<br><em>Modern Soul</em></h2>
+          <p class="modern-sanctuary__text">We believe that travel should be transformative. Each property in our collection is chosen not just for its amenities, but for its ability to connect you with the destination in a meaningful way but for its ability to connect you with the destination in a meaningful way.</p>
+          <div class="modern-sanctuary__actions" aria-label="Explore the Hotelsort experience">
+            <a class="modern-sanctuary__button modern-sanctuary__button--primary" href="#guest-voices">Our Philosophy</a>
+            <a class="modern-sanctuary__button modern-sanctuary__button--outline" href="#hero-end">Read the journal</a>
+          </div>
+        </div>
+
+        <div class="modern-sanctuary__media" aria-hidden="true">
+          <video class="modern-sanctuary__image modern-sanctuary__image--large section-video" autoplay muted loop playsinline preload="metadata" poster="assets/images/body/london-hotel-exterior.jpg" aria-label="City hotel exterior with classic architecture"><source src="https://www.pexels.com/download/video/29690876/" type="video/mp4"></video>
+          <video class="modern-sanctuary__image modern-sanctuary__image--small section-video" autoplay muted loop playsinline preload="metadata" poster="assets/images/body/loyalty-resort-aerial.jpg" aria-label="Aerial resort beach and pool destination"><source src="https://www.pexels.com/download/video/29690876/" type="video/mp4"></video>
+        </div>
+      </div>
+    
+    </section>
+
 
 
     <section class="junior-suite-showcase" aria-labelledby="junior-suite-showcase-title" data-section="18">
@@ -521,6 +662,7 @@
       <img class="junior-suite-showcase__image junior-suite-showcase__image--one" src="assets/images/body/suite-calm.jpg" alt="Calm junior suite bedroom and sitting area" width="1800" height="1201" loading="lazy">
       <img class="junior-suite-showcase__image junior-suite-showcase__image--two" src="assets/images/body/room-suite-city-view.jpg" alt="Junior suite with panoramic city windows" width="4032" height="2268" loading="lazy">
       <img class="junior-suite-showcase__image junior-suite-showcase__image--three" src="assets/images/body/indoor-pool.jpg" alt="Bright hotel wellness room detail" width="2200" height="2933" loading="lazy">
+    
     </section>
 
 
@@ -586,6 +728,7 @@
           </article>
         </div>
       </div>
+    
     </section>
 
     <section class="ritual-index" aria-labelledby="ritual-index-title" data-section="20">
@@ -614,7 +757,37 @@
         </article>
         <button class="ritual-index__button" type="button" data-open-booking>Book Your Ritual</button>
       </div>
+    
     </section>
+<section class="ritual-index video-variant video-variant--section-20 video-variant--massage-wellness" aria-labelledby="ritual-index-title-video" data-section="20-video" data-video-variant="20" data-pexels-video-id="5393521-video">
+      <div class="ritual-index__intro">
+        <h2 id="ritual-index-title-video">Feel The Difference</h2>
+        <p>True wellness starts from within. We carefully crafted every detail of this space so your body and mind can slow down, breathe, and finally rest the way they deserve.</p>
+      </div>
+
+      <div class="ritual-index__visual">
+        <video class="section-video" autoplay muted loop playsinline preload="metadata" poster="assets/images/body/wellness-massage.jpg" aria-label="Deep tissue spa massage treatment"><source src="https://www.pexels.com/download/video/5393521/" type="video/mp4"></video>
+        <p>Releases tension stored deep in your muscles. You'll leave feeling lighter than you have in years.</p>
+      </div>
+
+      <div class="ritual-index__list" aria-label="Wellness rituals">
+        <article class="ritual-index__item ritual-index__item--active">
+          <span>01</span>
+          <h3>Deep Tissue Massage</h3>
+        </article>
+        <article class="ritual-index__item">
+          <span>02</span>
+          <h3>Thermal Bathing Ritual</h3>
+        </article>
+        <article class="ritual-index__item">
+          <span>03</span>
+          <h3>Aromatherapy Journey</h3>
+        </article>
+        <button class="ritual-index__button" type="button" data-open-booking>Book Your Ritual</button>
+      </div>
+    
+    </section>
+
     <section class="horizon-destinations" aria-labelledby="horizon-destinations-title" data-section="21">
       <div class="horizon-destinations__topline" aria-hidden="true"></div>
       <div class="horizon-destinations__intro">
@@ -660,6 +833,7 @@
           </div>
         </article>
       </div>
+    
     </section>
     <section class="royal-retreat" aria-labelledby="royal-retreat-title" data-section="22">
       <div class="royal-retreat__panel">
@@ -672,6 +846,7 @@
           <img class="royal-retreat__image royal-retreat__image--three" src="assets/images/body/escape-pool-loungers.jpg" alt="Sunny resort pool terrace with loungers" width="2400" height="3200" loading="lazy">
         </div>
       </div>
+    
     </section>
     <section class="signature-suites" aria-labelledby="signature-suites-title" data-section="23">
       <div class="signature-suites__inner">
@@ -706,6 +881,7 @@
           </button>
         </div>
       </div>
+    
     </section>
     <section class="terra-luce" aria-labelledby="terra-luce-title" data-section="24">
       <div class="terra-luce__panel">
@@ -713,6 +889,7 @@
         <p>Mornings begin with the scent of wild herbs carried by the breeze, afternoons drift by to the rhythm of cicadas and golden light, and evenings are for lingering over a glass of local wine as the sun sets behind terracotta rooftops.</p>
         <img src="assets/images/body/tuscany-hills.jpg" alt="Tuscan hills with vineyards and warm countryside light" width="1800" height="1195" loading="lazy">
       </div>
+    
     </section>
     <section class="qelli-nature" aria-labelledby="qelli-nature-title" data-section="25">
       <div class="qelli-nature__canvas">
@@ -735,7 +912,32 @@
           </a>
         </div>
       </div>
+    
     </section>
+<section class="qelli-nature video-variant video-variant--section-25 video-variant--beach-resort" aria-labelledby="qelli-nature-title-video" data-section="25-video" data-video-variant="25" data-pexels-video-id="6629915-video">
+      <div class="qelli-nature__canvas">
+        <p class="qelli-nature__statement">Hotelsort is a tranquil hotel nestled amidst nature's majestic mountains, offering a harmonious blend of minimalist luxury and quiet restorative beauty.</p>
+        <h2 id="qelli-nature-title-video">Immerse Yourself<br>in the Embrace of Nature</h2>
+
+        <div class="qelli-nature__image qelli-nature__image--large">
+          <video class="section-video" autoplay muted loop playsinline preload="metadata" poster="assets/images/body/insiders-villa-pool.jpg" aria-label="Private hotel villa pool surrounded by lush tropical landscape"><source src="https://www.pexels.com/download/video/6629915/" type="video/mp4"></video>
+        </div>
+        <div class="qelli-nature__image qelli-nature__image--small">
+          <video class="section-video" autoplay muted loop playsinline preload="metadata" poster="assets/images/body/indoor-pool.jpg" aria-label="Serene indoor pool and lounge with warm minimalist interiors"><source src="https://www.pexels.com/download/video/6629915/" type="video/mp4"></video>
+        </div>
+
+        <div class="qelli-nature__aside">
+          <p>At Hotelsort, we believe in the power of simplicity. Our stays are thoughtfully selected to give you a peaceful getaway from the noise and pace of daily life.</p>
+          <a href="#hero-end" class="qelli-nature__link" aria-label="Learn more about Hotelsort">
+            <span>About Us</span>
+            <i aria-hidden="true"></i>
+            <b><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></b>
+          </a>
+        </div>
+      </div>
+    
+    </section>
+
     <section class="asia-pacific" aria-labelledby="asia-pacific-title" data-section="26">
       <div class="asia-pacific__grid" aria-hidden="true"></div>
       <div class="asia-pacific__arc asia-pacific__arc--left" aria-hidden="true"></div>
@@ -757,15 +959,16 @@
         <span aria-hidden="true"></span>
         <p>Luxurious<br>Hotel<br>Lobby</p>
       </div>
+    
     </section>
     <section class="solea-manifest" aria-labelledby="solea-manifest-title" data-section="27">
       <div class="solea-manifest__canvas">
         <div class="solea-manifest__rule" aria-hidden="true">
           <span></span>
-          <i class="fa-solid fa-clover" aria-hidden="true"></i>
+          <img class="flaticon-inline-icon" src="assets/images/icons/flaticon-clover-44962.png" alt="" width="32" height="32" aria-hidden="true">
           <span></span>
         </div>
-        <i class="fa-solid fa-clover solea-manifest__mark" aria-hidden="true"></i>
+        <img class="solea-manifest__mark flaticon-decor-icon" src="assets/images/icons/flaticon-clover-44962.png" alt="" width="96" height="96" aria-hidden="true">
 
         <h2 id="solea-manifest-title">Where <em>Luxury</em> feels<br>effortless and <em>Nature</em> is<br>always near.</h2>
 
@@ -774,22 +977,40 @@
           <p>Designed with elegance and inspired by the natural beauty that surrounds it, Hotelsort blends modern architecture with timeless charm. Whether you are seeking peaceful solitude, a romantic escape, or curated island adventures, every stay feels effortless.</p>
         </div>
       </div>
+    
     </section>
-    <section class="serenity-about" aria-labelledby="serenity-about-title" data-section="28">
-      <div class="serenity-about__inner">
-        <p class="serenity-about__eyebrow">About Us</p>
-        <h2 id="serenity-about-title">Welcome to Hotelsort</h2>
-        <p class="serenity-about__intro">From luxurious suites to personalized experiences, Hotelsort is designed to make every guest feel at home. Discover the perfect blend of nature, elegance, and warmth.</p>
-
-        <div class="serenity-about__gallery" aria-label="Hotelsort serene stay gallery">
-          <article><img src="assets/images/body/suite-warm.jpg" alt="Warm wood hotel suite exterior and terrace" width="1600" height="1067" loading="lazy"></article>
-          <article><img src="assets/images/body/grand-hotel-exterior.jpg" alt="Luxury hotel built into a dramatic coastal landscape" width="2200" height="2933" loading="lazy"></article>
-          <article><img src="assets/images/body/london-hotel-exterior.jpg" alt="Modern timber hotel exterior with clean windows" width="1600" height="1067" loading="lazy"></article>
-          <article><img src="assets/images/body/room-mountain-view.jpg" alt="Peaceful villa suite with garden and mountain light" width="2400" height="1600" loading="lazy"></article>
-          <article><img src="assets/images/body/escape-pool-loungers.jpg" alt="Infinity pool and mountain retreat at sunset" width="2400" height="3200" loading="lazy"></article>
-          <article><img src="assets/images/body/unparalleled-service-sofa-alt.jpg" alt="Luxury timber suite facade with private garden" width="2400" height="1600" loading="lazy"></article>
-        </div>
+    <section class="moments-editorial" aria-labelledby="moments-editorial-title" data-section="28">
+      <div class="moments-editorial__bar" aria-hidden="true">
+        <span>Guidelines</span>
+        <span>Welcome</span>
+        <span>Hotel premium theme</span>
       </div>
+
+      <div class="moments-editorial__canvas">
+        <div class="moments-editorial__logos" aria-label="Curated partner signals">
+          <span><img src="assets/images/icons/flaticon-hotel-88967.png" alt="" width="32" height="32" aria-hidden="true"></span>
+          <span><img src="assets/images/icons/flaticon-spa-treatment-53781.png" alt="" width="32" height="32" aria-hidden="true"></span>
+          <span><img src="assets/images/icons/flaticon-clover-44962.png" alt="" width="32" height="32" aria-hidden="true"></span>
+          <span><img src="assets/images/icons/flaticon-hotel-88967.png" alt="" width="32" height="32" aria-hidden="true"></span>
+        </div>
+
+        <div class="moments-editorial__headline">
+          <h2 id="moments-editorial-title"><span>Enjoy</span> the best moments of life</h2>
+          <p>Our private collection brings distinctive hotel experiences into one calm path: destination knowledge, thoughtful room selection, and rare places made for memorable stays.</p>
+        </div>
+
+        <figure class="moments-editorial__image">
+          <img src="assets/images/body/insiders-villa-pool.jpg" alt="Private tropical villa garden with pool and palms" width="2400" height="3200" loading="lazy">
+        </figure>
+
+        <dl class="moments-editorial__stats" aria-label="Hotelsort editorial metrics">
+          <div><dt>30+</dt><dd>Web pages</dd></div>
+          <div><dt>100%</dt><dd>Ready to use</dd></div>
+          <div><dt>10+</dt><dd>Hotel options</dd></div>
+          <div><dt>98%</dt><dd>UX rating</dd></div>
+        </dl>
+      </div>
+    
     </section>
     <section class="arc-about" aria-labelledby="arc-about-title" data-section="29">
       <div class="arc-about__canvas">
@@ -809,6 +1030,7 @@
           </div>
         </article>
       </div>
+    
     </section>
     <section class="grace-rooms" aria-labelledby="grace-rooms-title" data-section="30">
       <div class="grace-rooms__canvas">
@@ -831,6 +1053,7 @@
           </figure>
         </div>
       </div>
+    
     </section>
     <section class="michlin-luxury" aria-labelledby="michlin-luxury-title" data-section="31">
       <div class="michlin-luxury__canvas">
@@ -851,6 +1074,7 @@
           <img src="assets/images/body/room-mountain-view.jpg" alt="Luxury bedroom with mountain view at sunset" width="2400" height="1600" loading="lazy">
         </figure>
       </div>
+    
     </section>
     <section class="activities-gallery" aria-labelledby="activities-gallery-title" data-section="32">
       <div class="activities-gallery__inner">
@@ -879,6 +1103,7 @@
           </article>
         </div>
       </div>
+    
     </section>
     <section class="hotelix-featured" aria-labelledby="hotelix-featured-title" data-section="33">
       <div class="hotelix-featured__canvas">
@@ -901,7 +1126,7 @@
             <div class="hotelix-featured__room-copy">
               <h3>Deluxe Ocean View Suite</h3>
               <ul>
-                <li><i class="fa-solid fa-ruler-combined" aria-hidden="true"></i>26m²</li>
+                <li><i class="fa-solid fa-ruler-combined" aria-hidden="true"></i>26mÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â²</li>
                 <li><i class="fa-solid fa-bath" aria-hidden="true"></i>Bathroom</li>
                 <li><i class="fa-solid fa-bed" aria-hidden="true"></i>2 Beds</li>
                 <li><i class="fa-solid fa-user-group" aria-hidden="true"></i>2 Guests</li>
@@ -935,6 +1160,7 @@
           <button type="button" data-open-booking>Check Availability</button>
         </form>
       </div>
+    
     </section>
     <section class="trending-destinations" aria-labelledby="trending-destinations-title" data-section="34">
       <div class="trending-destinations__inner">
@@ -976,6 +1202,7 @@
           </article>
         </div>
       </div>
+    
     </section>
     <section class="double-room" aria-labelledby="double-room-title" data-section="35">
       <div class="double-room__canvas">
@@ -992,13 +1219,14 @@
           <dl>
             <div><dt>1</dt><dd>Queen Bed</dd></div>
             <div><dt>2-3</dt><dd>Guest</dd></div>
-            <div><dt>23 M²</dt><dd>Area</dd></div>
+            <div><dt>23 MÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â²</dt><dd>Area</dd></div>
           </dl>
           <a href="#hero-end">Entdecke Mehr <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
         </article>
 
         <div class="double-room__dots" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
       </div>
+    
     </section>
     <section class="relaxation-place" aria-labelledby="relaxation-place-title" data-section="36">
       <div class="relaxation-place__inner">
@@ -1026,6 +1254,7 @@
           </figure>
         </div>
       </div>
+    
     </section>
     <div class="hero-end" id="hero-end" aria-hidden="true"></div>
   </main>
@@ -1051,14 +1280,15 @@
             <button type="submit">Subscribe <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
             <span class="site-footer__success" role="status" aria-live="polite" hidden>Subscribed.</span>
           </form>
-        </section>
+        
+    </section>
 
         <div class="site-footer__rule" aria-hidden="true"></div>
 
         <div class="site-footer__content">
           <div class="site-footer__brand-block">
             <a class="site-footer__brand" href="#hero" aria-label="Hotelsort home">
-              <i class="fa-solid fa-clover" aria-hidden="true"></i>
+              <img class="site-footer__brand-symbol" src="assets/images/icons/flaticon-hotel-88967.png" alt="" width="64" height="64" aria-hidden="true">
               <span>Hotelsort</span>
             </a>
             <p>Experience timeless stays, restorative comfort, and exceptional service at Hotelsort.</p>
@@ -1099,6 +1329,43 @@
     </div>
   </footer>
 
+
+  <div class="sticky-topbar" data-sticky-topbar aria-hidden="true">
+    <div class="sticky-topbar__inner">
+      <a class="brand sticky-topbar__brand" href="#hero" aria-label="Hotelsort home"><img class="brand__symbol" src="assets/images/icons/flaticon-hotel-88967.png" alt="" width="64" height="64" aria-hidden="true"><span>HOTELSORT</span></a>
+
+      <nav class="hero__nav sticky-topbar__nav" aria-label="Sticky primary navigation">
+        <div class="hero__nav-item hero__nav-item--has-submenu">
+          <a class="hero__nav-link" href="#hero" aria-haspopup="true" aria-expanded="false">Stays <i class="fa-solid fa-chevron-down submenu-chevron submenu-chevron--down" aria-hidden="true"></i><i class="fa-solid fa-chevron-up submenu-chevron submenu-chevron--up" aria-hidden="true"></i></a>
+          <div class="hero__submenu" role="menu" aria-label="Sticky stays submenu">
+            <a href="#room-comfort-title" role="menuitem">Signature rooms</a>
+            <a href="#trending-destinations-title" role="menuitem">Trending destinations</a>
+            <a href="#hotelix-featured-title" role="menuitem">Featured availability</a>
+          </div>
+        </div>
+        <div class="hero__nav-item hero__nav-item--has-submenu">
+          <a class="hero__nav-link" href="#wellness" aria-haspopup="true" aria-expanded="false">Wellness <i class="fa-solid fa-chevron-down submenu-chevron submenu-chevron--down" aria-hidden="true"></i><i class="fa-solid fa-chevron-up submenu-chevron submenu-chevron--up" aria-hidden="true"></i></a>
+          <div class="hero__submenu" role="menu" aria-label="Sticky wellness submenu">
+            <a href="#wellness" role="menuitem">Ritual index</a>
+            <a href="#ritual-index-title" role="menuitem">Spa rituals</a>
+            <a href="#relax" role="menuitem">Thermal pool calm</a>
+          </div>
+        </div>
+        <a class="hero__nav-link" href="#restaurant-story-title">Dining</a>
+        <a class="hero__nav-link" href="#guest-voices-title">Stories</a>
+        <a class="hero__nav-link" href="#arc-about-title">About</a>
+      </nav>
+
+      <div class="sticky-topbar__actions">
+        <button class="btn hero__button hero__button--quiet" type="button" data-bs-toggle="modal" data-bs-target="#bookingModal">Explore stays</button>
+        <button class="btn hero__button hero__button--primary" type="button" data-bs-toggle="modal" data-bs-target="#bookingModal">Book your stay</button>
+      </div>
+
+      <button class="hero__menu sticky-topbar__menu" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-controls="mobileMenu" aria-label="Open navigation">
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
   <div class="offcanvas offcanvas-end hotelsort-offcanvas" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
     <div class="offcanvas-header">
       <h2 class="offcanvas-title" id="mobileMenuLabel">HOTELSORT</h2>
@@ -1106,11 +1373,35 @@
     </div>
     <div class="offcanvas-body">
       <nav class="mobile-nav" aria-label="Mobile navigation">
-        <a href="#hero" data-bs-dismiss="offcanvas">Stays</a>
-        <a href="#hero" data-bs-dismiss="offcanvas">Wellness</a>
-        <a href="#hero" data-bs-dismiss="offcanvas">Dining</a>
-        <a href="#hero" data-bs-dismiss="offcanvas">Stories</a>
-        <a href="#hero" data-bs-dismiss="offcanvas">About</a>
+        <div class="mobile-nav__item mobile-nav__item--has-submenu">
+          <a href="#hero" data-bs-dismiss="offcanvas">Stays</a>
+          <button class="mobile-nav__submenu-toggle" type="button" aria-expanded="false" aria-controls="mobile-submenu-stays" data-mobile-submenu-toggle>
+            <span class="visually-hidden">Toggle Stays submenu</span>
+            <i class="fa-solid fa-chevron-down submenu-chevron submenu-chevron--down" aria-hidden="true"></i>
+            <i class="fa-solid fa-chevron-up submenu-chevron submenu-chevron--up" aria-hidden="true"></i>
+          </button>
+          <div class="mobile-nav__submenu" id="mobile-submenu-stays" hidden>
+            <a href="#room-comfort-title" data-bs-dismiss="offcanvas">Signature rooms</a>
+            <a href="#trending-destinations-title" data-bs-dismiss="offcanvas">Trending destinations</a>
+            <a href="#hotelix-featured-title" data-bs-dismiss="offcanvas">Featured availability</a>
+          </div>
+        </div>
+        <div class="mobile-nav__item mobile-nav__item--has-submenu">
+          <a href="#wellness" data-bs-dismiss="offcanvas">Wellness</a>
+          <button class="mobile-nav__submenu-toggle" type="button" aria-expanded="false" aria-controls="mobile-submenu-wellness" data-mobile-submenu-toggle>
+            <span class="visually-hidden">Toggle Wellness submenu</span>
+            <i class="fa-solid fa-chevron-down submenu-chevron submenu-chevron--down" aria-hidden="true"></i>
+            <i class="fa-solid fa-chevron-up submenu-chevron submenu-chevron--up" aria-hidden="true"></i>
+          </button>
+          <div class="mobile-nav__submenu" id="mobile-submenu-wellness" hidden>
+            <a href="#wellness" data-bs-dismiss="offcanvas">Ritual index</a>
+            <a href="#ritual-index-title" data-bs-dismiss="offcanvas">Spa rituals</a>
+            <a href="#relax" data-bs-dismiss="offcanvas">Thermal pool calm</a>
+          </div>
+        </div>
+        <a href="#restaurant-story-title" data-bs-dismiss="offcanvas">Dining</a>
+        <a href="#guest-voices-title" data-bs-dismiss="offcanvas">Stories</a>
+        <a href="#arc-about-title" data-bs-dismiss="offcanvas">About</a>
       </nav>
       <button class="btn mobile-booking" type="button" data-bs-dismiss="offcanvas" data-open-booking>
         Book your stay
@@ -1264,3 +1555,4 @@
   <script src="assets/js/main.js"></script>
 </body>
 </html>
+

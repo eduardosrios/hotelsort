@@ -84,35 +84,6 @@
     $("[data-testimonial-rating]").text(testimonial.rating);
     $(".guest-voices__rating").attr("aria-label", `Rated ${testimonial.rating} out of 5`);
   });
-  const featuredTestimonials = [
-    {
-      quote: "From the infinity pool to the fine dining, everything felt world class. Truly one of the best stays I've ever found through Hotelsort.",
-      name: "Daniel Brooks",
-      location: "New York, USA"
-    },
-    {
-      quote: "The mountain views were extraordinary, yet the quiet service made the stay unforgettable. Every recommendation felt personal from the moment we arrived.",
-      name: "Sofia Laurent",
-      location: "Lyon, France"
-    },
-    {
-      quote: "Hotelsort found a coastal retreat that balanced privacy, character, and effortless hospitality. It was exactly the escape we hoped to find.",
-      name: "Marcus Reed",
-      location: "London, UK"
-    }
-  ];
-  let featuredTestimonialIndex = 0;
-
-  $("[data-featured-testimonial-nav]").on("click", function () {
-    featuredTestimonialIndex = $(this).data("featured-testimonial-nav") === "next"
-      ? (featuredTestimonialIndex + 1) % featuredTestimonials.length
-      : (featuredTestimonialIndex + featuredTestimonials.length - 1) % featuredTestimonials.length;
-
-    const testimonial = featuredTestimonials[featuredTestimonialIndex];
-    $("[data-featured-testimonial-quote]").text(testimonial.quote);
-    $("[data-featured-testimonial-name]").text(testimonial.name);
-    $("[data-featured-testimonial-location]").text(testimonial.location);
-  });
   $("[data-gallery-image]").on("click", function () {
     const imageSrc = $(this).data("gallery-image");
     const imageTitle = $(this).data("gallery-title");
@@ -238,4 +209,92 @@
       $success.prop("hidden", true);
     }, 1800);
   });
+
+  // STAGE 04I: desktop submenu aria state + mobile chevron toggles.
+  $('.hero__nav-item--has-submenu').each(function () {
+    const item = this;
+    const trigger = item.querySelector('.hero__nav-link');
+
+    item.addEventListener('mouseenter', function () {
+      item.classList.add('is-open');
+      trigger?.setAttribute('aria-expanded', 'true');
+    });
+
+    item.addEventListener('mouseleave', function () {
+      item.classList.remove('is-open');
+      trigger?.setAttribute('aria-expanded', 'false');
+    });
+
+    item.addEventListener('focusin', function () {
+      item.classList.add('is-open');
+      trigger?.setAttribute('aria-expanded', 'true');
+    });
+
+    item.addEventListener('focusout', function () {
+      window.setTimeout(function () {
+        if (!item.contains(document.activeElement)) {
+          item.classList.remove('is-open');
+          trigger?.setAttribute('aria-expanded', 'false');
+        }
+      }, 0);
+    });
+  });
+
+  $('[data-mobile-submenu-toggle]').on('click', function () {
+    const button = this;
+    const item = button.closest('.mobile-nav__item');
+    const submenu = document.getElementById(button.getAttribute('aria-controls'));
+    const open = button.getAttribute('aria-expanded') === 'true';
+
+    button.setAttribute('aria-expanded', String(!open));
+    item?.classList.toggle('is-open', !open);
+    if (submenu) {
+      submenu.hidden = open;
+    }
+  });
+
+  // STAGE 04J: sticky topbar appears after scroll and hides when footer enters viewport.
+  const stickyTopbar = document.querySelector('[data-sticky-topbar]');
+  const siteFooter = document.querySelector('.site-footer');
+  let stickyTicking = false;
+  let footerInView = false;
+
+  function updateStickyTopbar() {
+    if (!stickyTopbar) {
+      return;
+    }
+
+    const scrolled = window.scrollY > 160;
+    const footerRect = siteFooter ? siteFooter.getBoundingClientRect() : null;
+    const footerVisible = footerInView || (footerRect ? footerRect.top <= window.innerHeight && footerRect.bottom >= 0 : false);
+    const show = scrolled && !footerVisible;
+
+    stickyTopbar.classList.toggle('is-visible', show);
+    stickyTopbar.setAttribute('aria-hidden', String(!show));
+    stickyTicking = false;
+  }
+
+  function requestStickyTopbarUpdate() {
+    if (!stickyTicking) {
+      stickyTicking = true;
+      window.requestAnimationFrame(updateStickyTopbar);
+    }
+  }
+
+  if (siteFooter && 'IntersectionObserver' in window) {
+    const stickyFooterObserver = new IntersectionObserver(function (entries) {
+      footerInView = entries.some(function (entry) {
+        return entry.isIntersecting;
+      });
+      updateStickyTopbar();
+    }, { threshold: 0.01 });
+    stickyFooterObserver.observe(siteFooter);
+  }
+
+  updateStickyTopbar();
+  window.addEventListener('scroll', requestStickyTopbarUpdate, { passive: true });
+  window.addEventListener('resize', requestStickyTopbarUpdate);
 })(window.jQuery, window.bootstrap);
+
+
+
