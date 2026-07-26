@@ -1,0 +1,165 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hotelsort curates restorative hotel stays designed for privacy, calm, and considered comfort.">
+  <title>Hotelsort - A Place to Slow Down</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <main id="main-content">
+    <section class="hero" id="hero" aria-labelledby="hero-title">
+      <img
+        class="hero__image"
+        src="assets/images/hotelsort-hero-wellness-suite.png"
+        alt="A hotel guest in a robe relaxing in a warm, sunlit wellness suite"
+        width="1536"
+        height="1024"
+      >
+      <div class="hero__veil" aria-hidden="true"></div>
+
+      <div class="hero__frame">
+        <header class="hero__header">
+          <a class="brand" href="#hero" aria-label="Hotelsort home">HOTELSORT</a>
+
+          <nav class="hero__nav" aria-label="Primary navigation">
+            <a href="#hero">Stays</a>
+            <a href="#hero">Wellness</a>
+            <a href="#hero">Dining</a>
+            <a href="#hero">Stories</a>
+            <a href="#hero">About</a>
+          </nav>
+
+          <div class="hero__actions">
+            <button class="btn hero__button hero__button--quiet" type="button" data-bs-toggle="modal" data-bs-target="#bookingModal">
+              Explore stays
+            </button>
+            <button class="btn hero__button hero__button--primary" type="button" data-bs-toggle="modal" data-bs-target="#bookingModal">
+              Book your stay
+            </button>
+          </div>
+
+          <button
+            class="hero__menu"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#mobileMenu"
+            aria-controls="mobileMenu"
+            aria-label="Open navigation"
+          >
+            <i class="fa-solid fa-bars" aria-hidden="true"></i>
+          </button>
+        </header>
+
+        <div class="hero__headline">
+          <p class="hero__eyebrow">Restorative stays, thoughtfully selected</p>
+          <h1 id="hero-title"><span class="hero__headline-line">Place <em>To Slow Down</em></span><span class="hero__headline-line hero__headline-line--wide">And Feel At Home</span></h1>
+        </div>
+
+        <div class="hero__story hero__story--left">
+          Guests trusted by travelers<br>seeking calm, comfort, balance
+        </div>
+
+        <div class="hero__story hero__story--right">
+          Years creating spaces designed<br>for rest, privacy, and ease
+        </div>
+
+        <div class="hero__metric hero__metric--left">
+          <strong>120K</strong><span>+</span>
+        </div>
+
+        <div class="hero__metric hero__metric--right">
+          <strong>24</strong><span>+</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="hero-end" id="hero-end" aria-hidden="true"></div>
+  </main>
+
+  <div class="offcanvas offcanvas-end hotelsort-offcanvas" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
+    <div class="offcanvas-header">
+      <h2 class="offcanvas-title" id="mobileMenuLabel">HOTELSORT</h2>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close navigation"></button>
+    </div>
+    <div class="offcanvas-body">
+      <nav class="mobile-nav" aria-label="Mobile navigation">
+        <a href="#hero" data-bs-dismiss="offcanvas">Stays</a>
+        <a href="#hero" data-bs-dismiss="offcanvas">Wellness</a>
+        <a href="#hero" data-bs-dismiss="offcanvas">Dining</a>
+        <a href="#hero" data-bs-dismiss="offcanvas">Stories</a>
+        <a href="#hero" data-bs-dismiss="offcanvas">About</a>
+      </nav>
+      <button class="btn mobile-booking" type="button" data-bs-dismiss="offcanvas" data-open-booking>
+        Book your stay
+      </button>
+    </div>
+  </div>
+
+  <div class="modal fade hotelsort-modal" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div>
+            <p class="modal-kicker">Your next restorative stay</p>
+            <h2 class="modal-title" id="bookingModalLabel">Plan your escape</h2>
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close booking form"></button>
+        </div>
+        <form id="bookingForm">
+          <div class="modal-body">
+            <div class="row g-3">
+              <div class="col-12">
+                <label class="form-label" for="destination">Destination</label>
+                <select class="form-select" id="destination" required>
+                  <option value="">Choose a destination</option>
+                  <option>Atlantic Coast</option>
+                  <option>French Alps</option>
+                  <option>Island Retreat</option>
+                </select>
+              </div>
+              <div class="col-sm-6">
+                <label class="form-label" for="checkIn">Check in</label>
+                <input class="form-control" type="date" id="checkIn" required>
+              </div>
+              <div class="col-sm-6">
+                <label class="form-label" for="checkOut">Check out</label>
+                <input class="form-control" type="date" id="checkOut" required>
+              </div>
+              <div class="col-12">
+                <label class="form-label" for="guests">Guests</label>
+                <select class="form-select" id="guests" required>
+                  <option value="1">1 guest</option>
+                  <option value="2" selected>2 guests</option>
+                  <option value="3">3 guests</option>
+                  <option value="4">4 guests</option>
+                </select>
+              </div>
+            </div>
+            <div class="booking-success" role="status" aria-live="polite" hidden>
+              Your stay request is ready. A Hotelsort concierge will guide the next step.
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-link" data-bs-dismiss="modal">Not now</button>
+            <button type="submit" class="btn booking-submit">Check availability</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/vendor/jquery/jquery-4.0.0.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
