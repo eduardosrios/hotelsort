@@ -463,6 +463,10 @@
     if (img.closest('.auxiliary-link') || img.closest('.brand')) {
       return;
     }
+    const imageRect = img.getBoundingClientRect();
+    if (imageRect.width < 80 || imageRect.height < 80) {
+      return;
+    }
     img.classList.add('stage5-lightbox-ready');
     img.setAttribute('tabindex', '0');
     img.setAttribute('role', 'button');
@@ -550,6 +554,7 @@
 
   Array.from(document.querySelectorAll('.horizon-destinations__track, .signature-suites__gallery, .photo-gallery-wave__track, .trending-destinations__grid')).forEach(setupDragTrack);
 })(window.jQuery, window.bootstrap);
+
 
 
 

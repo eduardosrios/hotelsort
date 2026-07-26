@@ -7914,3 +7914,33 @@ img.stage5-lightbox-ready:hover {
   scroll-margin-top: 140px;
 }
 
+
+/* STAGE 06 - responsive interaction tap targets */
+.hotelsort-modal .form-control,
+.hotelsort-modal .form-select {
+  min-height: 54px;
+}
+
+.sticky-topbar .hero__nav-link,
+.sticky-topbar .hero__nav > a {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+}
+
+.sticky-topbar .brand {
+  min-height: 48px;
+}
+
+/* STAGE 06 - all visible form controls remain finger-friendly */
+main input,
+main select,
+main textarea,
+.site-footer input,
+.site-footer select,
+.site-footer textarea,
+.hotelsort-modal input,
+.hotelsort-modal select,
+.hotelsort-modal textarea {
+  min-height: 54px;
+}
