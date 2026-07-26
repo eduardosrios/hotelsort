@@ -1328,9 +1328,15 @@
       </div>
     </div>
   </footer>
+  <div class="stage5-progress" data-stage5-progress aria-label="Current page section" aria-live="polite">
+    <span class="stage5-progress__index" data-stage5-progress-index>01</span>
+    <strong class="stage5-progress__title" data-stage5-progress-title>Arrival</strong>
+    <span class="stage5-progress__bar" aria-hidden="true"><span data-stage5-progress-bar></span></span>
+  </div>
 
-
-  <div class="sticky-topbar" data-sticky-topbar aria-hidden="true">
+  <button class="stage5-dynamic-cta" type="button" data-stage5-cta data-bs-toggle="modal" data-bs-target="#bookingModal">
+    <span data-stage5-cta-label>Plan your stay</span>
+  </button><div class="sticky-topbar" data-sticky-topbar aria-hidden="true">
     <div class="sticky-topbar__inner">
       <a class="brand sticky-topbar__brand" href="#hero" aria-label="Hotelsort home"><img class="brand__symbol" src="assets/images/icons/flaticon-hotel-88967.png" alt="" width="64" height="64" aria-hidden="true"><span>HOTELSORT</span></a>
 
@@ -1550,9 +1556,26 @@
       </div>
     </div>
   </div>
-  <script src="assets/vendor/jquery/jquery-4.0.0.min.js"></script>
+  <div class="modal fade hotelsort-modal stage5-video-modal" id="stage5VideoModal" tabindex="-1" aria-labelledby="stage5VideoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div>
+            <p class="modal-kicker">Hotelsort motion preview</p>
+            <h2 class="modal-title" id="stage5VideoModalLabel" data-stage5-video-title>Featured stay in motion</h2>
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close video preview"></button>
+        </div>
+        <div class="modal-body stage5-video-modal__body">
+          <video controls playsinline preload="metadata" data-stage5-video-player></video>
+        </div>
+      </div>
+    </div>
+  </div><script src="assets/vendor/jquery/jquery-4.0.0.min.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
 </html>
+
+
 

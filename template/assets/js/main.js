@@ -294,7 +294,263 @@
   updateStickyTopbar();
   window.addEventListener('scroll', requestStickyTopbarUpdate, { passive: true });
   window.addEventListener('resize', requestStickyTopbarUpdate);
+  // STAGE 05: premium interactive layer.
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.documentElement.classList.add('stage5-js-ready');
+
+  const stageSections = Array.from(document.querySelectorAll('header.hero, main > section, footer.site-footer'));
+  const progressShell = document.querySelector('[data-stage5-progress]');
+  const progressIndex = document.querySelector('[data-stage5-progress-index]');
+  const progressTitle = document.querySelector('[data-stage5-progress-title]');
+  const dynamicCta = document.querySelector('[data-stage5-cta]');
+  const dynamicCtaLabel = document.querySelector('[data-stage5-cta-label]');
+
+  function stageTitle(section, index) {
+    if (section.classList.contains('hero')) {
+      return 'Arrival';
+    }
+    if (section.classList.contains('site-footer')) {
+      return 'Stay connected';
+    }
+    const title = section.querySelector('h1, h2, h3');
+    return (title?.textContent || `Section ${index + 1}`).replace(/\s+/g, ' ').trim();
+  }
+
+  function stageCtaFor(section) {
+    const cls = section.className || '';
+    if (/restaurant|dining|terra-luce/.test(cls)) {
+      return { label: 'Reserve dining', target: '#diningModal' };
+    }
+    if (/insiders|footer|loyalty/.test(cls)) {
+      return { label: 'Join insiders', target: '#insidersModal' };
+    }
+    if (/gallery|photo|video/.test(cls)) {
+      return { label: 'View gallery', target: '#galleryModal' };
+    }
+    return { label: 'Plan your stay', target: '#bookingModal' };
+  }
+
+  stageSections.forEach(function (section, index) {
+    section.dataset.stage5Index = String(index + 1).padStart(2, '0');
+    section.dataset.stage5Title = stageTitle(section, index);
+    section.classList.add('stage5-reveal');
+  });
+
+  const revealObserver = 'IntersectionObserver' in window
+    ? new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.08 })
+    : null;
+
+  stageSections.forEach(function (section) {
+    if (revealObserver) {
+      revealObserver.observe(section);
+    } else {
+      section.classList.add('is-visible');
+    }
+  });
+
+  const parallaxTargets = Array.from(document.querySelectorAll('.hero__image, .relax-banner__image, .arbany-selection__visual img, .modern-sanctuary__image, .qelli-nature__image, .signature-suites__tile--hero img')).filter(Boolean);
+  parallaxTargets.forEach(function (target) {
+    target.classList.add('stage5-parallax');
+  });
+
+  let stageTicking = false;
+  function updateStage5Scroll() {
+    const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+    const progress = Math.min(1, Math.max(0, window.scrollY / maxScroll));
+    document.documentElement.style.setProperty('--stage5-progress', progress.toFixed(4));
+
+    let active = stageSections[0];
+    stageSections.forEach(function (section) {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= window.innerHeight * 0.42 && rect.bottom > window.innerHeight * 0.18) {
+        active = section;
+      }
+    });
+
+    if (progressShell && active) {
+      const shouldShow = window.scrollY > 180;
+      progressShell.classList.toggle('is-visible', shouldShow);
+      progressIndex.textContent = active.dataset.stage5Index || '01';
+      progressTitle.textContent = active.dataset.stage5Title || 'Hotelsort';
+    }
+
+    if (dynamicCta && active) {
+      const shouldShowCta = window.scrollY > window.innerHeight * 0.72;
+      const cta = stageCtaFor(active);
+      dynamicCta.classList.toggle('is-visible', shouldShowCta);
+      dynamicCta.setAttribute('data-bs-target', cta.target);
+      dynamicCta.setAttribute('aria-label', cta.label);
+      dynamicCtaLabel.textContent = cta.label;
+    }
+
+    if (!reduceMotion) {
+      parallaxTargets.forEach(function (target) {
+        const rect = target.getBoundingClientRect();
+        if (rect.bottom >= 0 && rect.top <= window.innerHeight) {
+          const shift = ((rect.top + rect.height / 2) - window.innerHeight / 2) * -0.035;
+          target.style.setProperty('--stage5-shift', `${Math.max(-28, Math.min(28, shift)).toFixed(1)}px`);
+        }
+      });
+    }
+
+    stageTicking = false;
+  }
+
+  function requestStage5Scroll() {
+    if (!stageTicking) {
+      stageTicking = true;
+      window.requestAnimationFrame(updateStage5Scroll);
+    }
+  }
+
+  updateStage5Scroll();
+  window.addEventListener('scroll', requestStage5Scroll, { passive: true });
+  window.addEventListener('resize', requestStage5Scroll);
+
+  const counterObserver = 'IntersectionObserver' in window
+    ? new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting || entry.target.dataset.counted === 'true') {
+          return;
+        }
+        const target = entry.target;
+        const raw = target.textContent.trim();
+        const end = Number(raw.replace(/[^0-9.]/g, ''));
+        if (!Number.isFinite(end)) {
+          return;
+        }
+        target.dataset.counted = 'true';
+        const suffix = raw.replace(/[0-9.]/g, '');
+        const start = performance.now();
+        const duration = reduceMotion ? 1 : 900;
+        function step(now) {
+          const t = Math.min(1, (now - start) / duration);
+          const eased = 1 - Math.pow(1 - t, 3);
+          const value = end % 1 ? (end * eased).toFixed(1) : Math.round(end * eased);
+          target.textContent = `${value}${suffix}`;
+          if (t < 1) {
+            window.requestAnimationFrame(step);
+          } else {
+            target.textContent = raw;
+          }
+        }
+        window.requestAnimationFrame(step);
+      });
+    }, { threshold: 0.55 })
+    : null;
+
+  Array.from(document.querySelectorAll('.wellness-stats strong, .arbany-selection__meta strong, .loyalty-benefits strong, .hotelix-featured strong')).forEach(function (el) {
+    if (counterObserver && /\d/.test(el.textContent)) {
+      counterObserver.observe(el);
+    }
+  });
+
+  Array.from(document.querySelectorAll('.escape-gallery__item, .loyalty-benefits__card, .horizon-destinations__card, .signature-suites__tile, .arbany-selection__card, .trending-destinations article, .hotelix-featured article')).forEach(function (card) {
+    card.classList.add('stage5-hot-card');
+  });
+
+  const galleryModalElement = document.getElementById('galleryModal');
+  const galleryModal = galleryModalElement ? bootstrap.Modal.getOrCreateInstance(galleryModalElement) : null;
+  const lightboxSelectors = '.photo-gallery-wave img, .signature-suites img, .escape-gallery__item img, .activities-gallery img, .moments-editorial img, .arbany-selection__visual img';
+  Array.from(document.querySelectorAll(lightboxSelectors)).forEach(function (img) {
+    if (img.closest('.auxiliary-link') || img.closest('.brand')) {
+      return;
+    }
+    img.classList.add('stage5-lightbox-ready');
+    img.setAttribute('tabindex', '0');
+    img.setAttribute('role', 'button');
+    img.setAttribute('aria-label', `Open gallery image: ${img.alt || 'Hotelsort image'}`);
+    function openImage() {
+      if (!galleryModal) {
+        return;
+      }
+      $('[data-gallery-modal-image]').attr('src', img.getAttribute('src')).attr('alt', img.getAttribute('alt') || 'Hotelsort gallery image');
+      $('#galleryModalLabel').text(img.getAttribute('alt') || 'Hotelsort gallery highlight');
+      galleryModal.show();
+    }
+    img.addEventListener('click', openImage);
+    img.addEventListener('keydown', function (event) {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        openImage();
+      }
+    });
+  });
+
+  const videoModalElement = document.getElementById('stage5VideoModal');
+  const videoModal = videoModalElement ? bootstrap.Modal.getOrCreateInstance(videoModalElement) : null;
+  const videoPlayer = document.querySelector('[data-stage5-video-player]');
+  const videoTitle = document.querySelector('[data-stage5-video-title]');
+  Array.from(document.querySelectorAll('.video-variant')).forEach(function (section) {
+    if (section.querySelector('.video-modal-trigger')) {
+      return;
+    }
+    const source = section.querySelector('video source');
+    if (!source || !videoModal || !videoPlayer) {
+      return;
+    }
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'video-modal-trigger';
+    button.innerHTML = '<i class="fa-solid fa-play" aria-hidden="true"></i><span>Play motion</span>';
+    button.addEventListener('click', function () {
+      const label = section.dataset.stage5Title || section.querySelector('h2, h3')?.textContent?.trim() || 'Featured stay in motion';
+      videoTitle.textContent = label;
+      videoPlayer.setAttribute('poster', section.querySelector('video')?.getAttribute('poster') || '');
+      videoPlayer.setAttribute('src', source.getAttribute('src'));
+      videoPlayer.load();
+      videoModal.show();
+    });
+    section.appendChild(button);
+  });
+
+  if (videoModalElement && videoPlayer) {
+    videoModalElement.addEventListener('hidden.bs.modal', function () {
+      videoPlayer.pause();
+      videoPlayer.removeAttribute('src');
+      videoPlayer.load();
+    });
+  }
+
+  function setupDragTrack(track) {
+    let dragging = false;
+    let startX = 0;
+    let startScroll = 0;
+    track.classList.add('stage5-drag-ready');
+    track.addEventListener('pointerdown', function (event) {
+      if (event.button !== 0 || track.scrollWidth <= track.clientWidth + 12) {
+        return;
+      }
+      dragging = true;
+      startX = event.clientX;
+      startScroll = track.scrollLeft;
+      track.classList.add('is-dragging');
+      track.setPointerCapture(event.pointerId);
+    });
+    track.addEventListener('pointermove', function (event) {
+      if (!dragging) {
+        return;
+      }
+      track.scrollLeft = startScroll - (event.clientX - startX);
+    });
+    ['pointerup', 'pointercancel', 'pointerleave'].forEach(function (type) {
+      track.addEventListener(type, function () {
+        dragging = false;
+        track.classList.remove('is-dragging');
+      });
+    });
+  }
+
+  Array.from(document.querySelectorAll('.horizon-destinations__track, .signature-suites__gallery, .photo-gallery-wave__track, .trending-destinations__grid')).forEach(setupDragTrack);
 })(window.jQuery, window.bootstrap);
+
 
 
 
