@@ -3905,7 +3905,7 @@ select {
 
 .modern-sanctuary__actions {
   display: flex;
-  gap: 1.7vw;
+  gap: 1.55vw;
   margin-top: 2.7vw;
 }
 
@@ -4376,5 +4376,1398 @@ select {
   .junior-suite-showcase__image--two,
   .junior-suite-showcase__image--three {
     height: 70vw;
+  }
+}
+/* Stage 2 - Section 19 - memory stay */
+.wardel-suites {
+  overflow: hidden;
+  color: #1f2630;
+  background: #dedede;
+}
+
+.wardel-suites__inner {
+  width: calc(100% - 10vw);
+  max-width: 1710px;
+  margin: 0 auto;
+  padding: 5.05vw 0 4.35vw;
+}
+
+.wardel-suites h2 {
+  margin: 0 0 4.85vw;
+  font-family: var(--font-display);
+  font-size: clamp(90px, 8.05vw, 154px);
+  font-weight: 400;
+  line-height: 0.78;
+  letter-spacing: -0.075em;
+  text-transform: uppercase;
+}
+
+.wardel-suites__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2.15vw;
+}
+
+.wardel-suites__card {
+  display: grid;
+  min-width: 0;
+  color: #202730;
+}
+
+.wardel-suites__card img {
+  display: block;
+  width: 100%;
+  height: 18.1vw;
+  min-height: 260px;
+  max-height: 348px;
+  border: 1px solid rgba(31, 38, 48, 0.3);
+  border-bottom: 0;
+  object-fit: cover;
+}
+
+.wardel-suites__card:nth-child(1) img {
+  object-position: center center;
+}
+
+.wardel-suites__card:nth-child(2) img {
+  object-position: center center;
+}
+
+.wardel-suites__card:nth-child(3) img {
+  object-position: 54% center;
+}
+
+.wardel-suites__body {
+  min-height: 12.55vw;
+  padding: 1.58vw 1.62vw 1.45vw;
+  border: 1px solid rgba(31, 38, 48, 0.36);
+  background: #dedede;
+}
+
+.wardel-suites__meta {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.25vw;
+  margin-bottom: 1.95vw;
+}
+
+.wardel-suites__meta p {
+  margin: 0;
+  font-size: clamp(13px, 0.78vw, 18px);
+  font-weight: 800;
+  line-height: 1.16;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.wardel-suites__meta span {
+  display: inline-flex;
+  gap: 0.55vw;
+  color: #a1a1a1;
+  font-size: clamp(16px, 1.08vw, 23px);
+}
+
+.wardel-suites__body h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(44px, 3.85vw, 80px);
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: -0.075em;
+  text-transform: uppercase;
+}
+
+.wardel-suites__rate {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1.25vw;
+  min-height: 4.05vw;
+  color: #8a8a8a;
+  font-size: clamp(12px, 0.76vw, 17px);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+.wardel-suites__rate i {
+  color: #8b8b8b;
+  font-size: clamp(18px, 1.35vw, 29px);
+}
+
+.wardel-suites__rate:hover,
+.wardel-suites__rate:focus-visible {
+  color: #202730;
+}
+
+.wardel-suites__rate:focus-visible {
+  outline: 3px solid rgba(31, 38, 48, 0.24);
+  outline-offset: 5px;
+}
+
+@media (max-width: 991.98px) {
+  .wardel-suites__inner {
+    width: calc(100% - 56px);
+    padding: 70px 0 76px;
+  }
+
+  .wardel-suites h2 {
+    margin-bottom: 48px;
+    font-size: clamp(70px, 13vw, 128px);
+  }
+
+  .wardel-suites__grid {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .wardel-suites__card img {
+    height: 52vw;
+    min-height: 260px;
+    max-height: none;
+  }
+
+  .wardel-suites__body {
+    min-height: 0;
+    padding: 28px 28px 24px;
+  }
+
+  .wardel-suites__meta {
+    margin-bottom: 28px;
+  }
+
+  .wardel-suites__rate {
+    min-height: 54px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .wardel-suites__inner {
+    width: calc(100% - 40px);
+    padding: 62px 0 70px;
+  }
+
+  .wardel-suites h2 {
+    margin-bottom: 36px;
+    font-size: 54px;
+    line-height: 0.86;
+  }
+
+  .wardel-suites__grid {
+    gap: 30px;
+  }
+
+  .wardel-suites__card img {
+    height: 56vw;
+    min-height: 218px;
+  }
+
+  .wardel-suites__body {
+    padding: 22px 20px 22px;
+  }
+
+  .wardel-suites__meta {
+    gap: 20px;
+    margin-bottom: 28px;
+  }
+
+  .wardel-suites__meta p {
+    font-size: 13px;
+  }
+
+  .wardel-suites__meta span {
+    gap: 8px;
+    font-size: 15px;
+  }
+
+  .wardel-suites__body h3 {
+    font-size: 38px;
+  }
+
+  .wardel-suites__rate {
+    justify-content: space-between;
+    min-height: 48px;
+    font-size: 12px;
+  }
+}
+/* Stage 2 - Section 20 - wellness ritual index */
+.ritual-index {
+  position: relative;
+  min-height: 57.88vw;
+  overflow: hidden;
+  color: #2a1606;
+  background: #f8f8f6;
+}
+
+.ritual-index__intro {
+  position: absolute;
+  top: 4.95%;
+  left: 2.78%;
+  width: 39.2vw;
+}
+
+.ritual-index__intro h2 {
+  margin: 0 0 1.12vw;
+  font-family: var(--font-display);
+  font-size: clamp(52px, 3.52vw, 76px);
+  font-weight: 700;
+  line-height: 0.96;
+  letter-spacing: -0.07em;
+}
+
+.ritual-index__intro p {
+  width: 35.6vw;
+  margin: 0;
+  color: #a9a9a5;
+  font-size: clamp(16px, 1.08vw, 23px);
+  font-weight: 500;
+  line-height: 1.42;
+  letter-spacing: -0.045em;
+}
+
+.ritual-index__visual {
+  position: absolute;
+  top: 31.9%;
+  left: 13.28%;
+  width: 24.95vw;
+}
+
+.ritual-index__visual img {
+  display: block;
+  width: 100%;
+  height: 14.9vw;
+  min-height: 240px;
+  object-fit: cover;
+  object-position: center 46%;
+}
+
+.ritual-index__visual p {
+  width: 21.5vw;
+  margin: 1.05vw 0 0;
+  color: #c9c9c5;
+  font-size: clamp(14px, 0.9vw, 19px);
+  font-weight: 500;
+  line-height: 1.36;
+  letter-spacing: -0.045em;
+}
+
+.ritual-index__list {
+  position: absolute;
+  top: 23.15%;
+  left: 49.85%;
+  width: 43.5vw;
+}
+
+.ritual-index__item {
+  margin-bottom: 3.25vw;
+}
+
+.ritual-index__item span {
+  display: block;
+  margin-bottom: 1.75vw;
+  color: #d2d2ce;
+  font-family: var(--font-display);
+  font-size: clamp(22px, 1.52vw, 33px);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.ritual-index__item h3 {
+  margin: 0;
+  color: #d8d8d5;
+  font-family: var(--font-display);
+  font-size: clamp(56px, 4.16vw, 90px);
+  font-weight: 700;
+  line-height: 0.92;
+  letter-spacing: -0.08em;
+}
+
+.ritual-index__item--active {
+  margin-bottom: 3.45vw;
+}
+
+.ritual-index__item--active span,
+.ritual-index__item--active h3 {
+  color: #2a1606;
+}
+
+.ritual-index__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14.2vw;
+  min-width: 205px;
+  height: 3.95vw;
+  min-height: 58px;
+  margin-top: -0.25vw;
+  border: 0;
+  color: #fffdf8;
+  background: #2b1605;
+  font-size: clamp(13px, 0.85vw, 18px);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.ritual-index__button:hover,
+.ritual-index__button:focus-visible {
+  background: #45270d;
+  transform: translateY(-1px);
+}
+
+.ritual-index__button:focus-visible {
+  outline: 3px solid rgba(43, 22, 5, 0.22);
+  outline-offset: 4px;
+}
+
+@media (max-width: 991.98px) {
+  .ritual-index {
+    min-height: 0;
+    padding: 74px 28px 82px;
+  }
+
+  .ritual-index__intro,
+  .ritual-index__visual,
+  .ritual-index__list {
+    position: static;
+    width: 100%;
+  }
+
+  .ritual-index__intro {
+    max-width: 680px;
+  }
+
+  .ritual-index__intro p {
+    width: 100%;
+  }
+
+  .ritual-index__visual {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 0.72fr);
+    gap: 26px;
+    align-items: end;
+    margin: 46px 0 54px;
+  }
+
+  .ritual-index__visual img {
+    height: 36vw;
+    min-height: 260px;
+  }
+
+  .ritual-index__visual p {
+    width: auto;
+    margin: 0;
+  }
+
+  .ritual-index__item {
+    margin-bottom: 36px;
+  }
+
+  .ritual-index__item h3 {
+    font-size: clamp(54px, 8.8vw, 86px);
+  }
+
+  .ritual-index__button {
+    width: 230px;
+    height: 60px;
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .ritual-index {
+    padding: 62px 20px 70px;
+  }
+
+  .ritual-index__intro h2 {
+    font-size: 44px;
+  }
+
+  .ritual-index__intro p {
+    font-size: 15px;
+  }
+
+  .ritual-index__visual {
+    display: block;
+    margin: 38px 0 44px;
+  }
+
+  .ritual-index__visual img {
+    height: 56vw;
+    min-height: 218px;
+  }
+
+  .ritual-index__visual p {
+    margin-top: 18px;
+    font-size: 14px;
+  }
+
+  .ritual-index__item {
+    margin-bottom: 28px;
+  }
+
+  .ritual-index__item span {
+    margin-bottom: 12px;
+    font-size: 21px;
+  }
+
+  .ritual-index__item h3 {
+    font-size: 42px;
+  }
+
+  .ritual-index__button {
+    width: 100%;
+  }
+}
+/* Stage 2 - Section 21 - horizon destinations */
+.horizon-destinations {
+  position: relative;
+  overflow: hidden;
+  min-height: 77.1vw;
+  color: #070707;
+  background: #f8f8f5;
+  font-family: var(--font-ui);
+}
+
+.horizon-destinations__topline {
+  position: absolute;
+  top: -0.16vw;
+  left: 47.2%;
+  width: 18.8vw;
+  height: 0.14vw;
+  min-height: 2px;
+  background: #070707;
+}
+
+.horizon-destinations__intro {
+  position: relative;
+  min-height: 20.78vw;
+}
+
+.horizon-destinations__heading {
+  position: absolute;
+  top: 12.05vw;
+  left: 5.5vw;
+  width: 38vw;
+}
+
+.horizon-destinations__heading h2 {
+  margin: 0 0 1.22vw;
+  color: #000;
+  font-family: var(--font-ui);
+  font-size: clamp(58px, 4.02vw, 96px);
+  font-weight: 400;
+  line-height: 0.96;
+  letter-spacing: -0.055em;
+}
+
+.horizon-destinations__heading p {
+  width: 38.8vw;
+  margin: 0;
+  color: #60605b;
+  font-size: clamp(18px, 1.15vw, 25px);
+  font-weight: 400;
+  line-height: 1.34;
+  letter-spacing: -0.04em;
+}
+
+.horizon-destinations__copy {
+  position: absolute;
+  top: 4.08vw;
+  left: 68.52vw;
+  width: 27.35vw;
+  min-height: 8.2vw;
+  color: #51514d;
+}
+
+.horizon-destinations__copy span {
+  position: absolute;
+  top: -2.72vw;
+  left: -3.22vw;
+  color: rgba(77, 77, 72, 0.22);
+  font-family: var(--font-display);
+  font-size: clamp(78px, 6.15vw, 142px);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.085em;
+}
+
+.horizon-destinations__copy p {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-size: clamp(15px, 0.96vw, 22px);
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: -0.045em;
+}
+
+.horizon-destinations__pager {
+  position: absolute;
+  right: 6.24vw;
+  top: 17.85vw;
+  display: flex;
+  align-items: center;
+  gap: 1.55vw;
+  color: #651027;
+}
+
+.horizon-destinations__pager button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.25vw;
+  height: 2vw;
+  padding: 0;
+  border: 0;
+  color: #a99776;
+  background: transparent;
+}
+
+.horizon-destinations__pager button span {
+  position: relative;
+  display: block;
+  width: 3.68vw;
+  height: 1px;
+  background: currentColor;
+}
+
+.horizon-destinations__pager button span::before {
+  position: absolute;
+  top: 50%;
+  width: 0.42vw;
+  height: 0.42vw;
+  content: "";
+  border-top: 1px solid currentColor;
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+.horizon-destinations__pager button:first-child span::before {
+  left: 0;
+  border-left: 1px solid currentColor;
+}
+
+.horizon-destinations__pager button:last-child span::before {
+  right: 0;
+  border-right: 1px solid currentColor;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.horizon-destinations__pager p {
+  margin: 0;
+  color: #641126;
+  font-family: var(--font-display);
+  font-style: italic;
+  line-height: 1;
+}
+
+.horizon-destinations__pager strong {
+  font-size: clamp(37px, 2.64vw, 64px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+.horizon-destinations__pager em {
+  margin: 0 0.45vw;
+  font-size: clamp(21px, 1.42vw, 34px);
+  font-weight: 400;
+}
+
+.horizon-destinations__track {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 2.96vw;
+  width: max-content;
+  padding-left: 5.5vw;
+}
+
+.horizon-destinations__card {
+  flex: 0 0 auto;
+}
+
+.horizon-destinations__card img {
+  display: block;
+  width: 100%;
+  height: 39.18vw;
+  object-fit: cover;
+  background: #ddd;
+}
+
+.horizon-destinations__card--primary {
+  width: 65.55vw;
+}
+
+.horizon-destinations__card--primary img {
+  object-position: 51% 30%;
+}
+
+.horizon-destinations__card--secondary {
+  width: 26.4vw;
+}
+
+.horizon-destinations__card--secondary img {
+  object-position: 52% center;
+}
+
+.horizon-destinations__card-copy {
+  padding-top: 2.05vw;
+}
+
+.horizon-destinations__card-copy p {
+  margin: 0 0 1.28vw;
+  color: #363631;
+  font-size: clamp(15px, 0.95vw, 22px);
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: -0.045em;
+}
+
+.horizon-destinations__card-copy h3 {
+  margin: 0 0 1.25vw;
+  color: #020202;
+  font-family: var(--font-ui);
+  font-size: clamp(30px, 1.92vw, 46px);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.055em;
+}
+
+.horizon-destinations__card-copy span {
+  display: block;
+  margin: 0 0 3.15vw;
+  color: #5b5b56;
+  font-size: clamp(16px, 1.02vw, 24px);
+  font-weight: 400;
+  line-height: 1.42;
+  letter-spacing: -0.045em;
+}
+
+.horizon-destinations__card--primary .horizon-destinations__card-copy span {
+  max-width: 58.2vw;
+}
+
+.horizon-destinations__card--secondary .horizon-destinations__card-copy span {
+  max-width: 27.6vw;
+}
+
+.horizon-destinations__card-copy a {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.32vw;
+  color: #5e1025;
+  font-family: var(--font-display);
+  font-size: clamp(17px, 1.06vw, 25px);
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.012em;
+  text-decoration: none;
+}
+
+.horizon-destinations__card-copy a::after {
+  display: block;
+  width: 2.78vw;
+  min-width: 48px;
+  height: 1px;
+  content: "";
+  background: currentColor;
+}
+
+.horizon-destinations__card-copy a:hover,
+.horizon-destinations__card-copy a:focus-visible {
+  color: #230008;
+}
+
+.horizon-destinations__card-copy a:focus-visible,
+.horizon-destinations__pager button:focus-visible {
+  outline: 3px solid rgba(94, 16, 37, 0.22);
+  outline-offset: 6px;
+}
+
+@media (max-width: 991.98px) {
+  .horizon-destinations {
+    min-height: 0;
+    padding: 78px 28px 86px;
+  }
+
+  .horizon-destinations__topline {
+    display: none;
+  }
+
+  .horizon-destinations__intro {
+    min-height: 0;
+  }
+
+  .horizon-destinations__heading,
+  .horizon-destinations__copy,
+  .horizon-destinations__pager {
+    position: static;
+    width: auto;
+  }
+
+  .horizon-destinations__heading {
+    max-width: 760px;
+  }
+
+  .horizon-destinations__heading p {
+    width: auto;
+    max-width: 620px;
+  }
+
+  .horizon-destinations__copy {
+    max-width: 680px;
+    margin: 44px 0 38px auto;
+  }
+
+  .horizon-destinations__copy span {
+    top: -34px;
+    left: -26px;
+  }
+
+  .horizon-destinations__pager {
+    justify-content: flex-end;
+    margin-bottom: 32px;
+  }
+
+  .horizon-destinations__pager button {
+    width: 74px;
+  }
+
+  .horizon-destinations__pager button span {
+    width: 62px;
+  }
+
+  .horizon-destinations__track {
+    display: grid;
+    width: 100%;
+    gap: 42px;
+    padding-left: 0;
+  }
+
+  .horizon-destinations__card--primary,
+  .horizon-destinations__card--secondary {
+    width: 100%;
+  }
+
+  .horizon-destinations__card img {
+    height: 55vw;
+    min-height: 360px;
+  }
+
+  .horizon-destinations__card-copy {
+    padding-top: 26px;
+  }
+
+  .horizon-destinations__card-copy span,
+  .horizon-destinations__card--primary .horizon-destinations__card-copy span,
+  .horizon-destinations__card--secondary .horizon-destinations__card-copy span {
+    max-width: 720px;
+    margin-bottom: 34px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .horizon-destinations {
+    padding: 60px 20px 70px;
+  }
+
+  .horizon-destinations__heading h2 {
+    font-size: 48px;
+  }
+
+  .horizon-destinations__heading p,
+  .horizon-destinations__copy p,
+  .horizon-destinations__card-copy span {
+    font-size: 15px;
+  }
+
+  .horizon-destinations__copy {
+    margin: 34px 0 28px;
+  }
+
+  .horizon-destinations__copy span {
+    display: none;
+  }
+
+  .horizon-destinations__pager {
+    justify-content: flex-start;
+    gap: 18px;
+  }
+
+  .horizon-destinations__pager button {
+    width: 56px;
+  }
+
+  .horizon-destinations__pager button span {
+    width: 46px;
+  }
+
+  .horizon-destinations__pager strong {
+    font-size: 42px;
+  }
+
+  .horizon-destinations__card img {
+    height: 74vw;
+    min-height: 275px;
+  }
+
+  .horizon-destinations__card-copy p {
+    margin-bottom: 14px;
+    font-size: 15px;
+  }
+
+  .horizon-destinations__card-copy h3 {
+    font-size: 32px;
+  }
+
+  .horizon-destinations__card-copy a {
+    gap: 18px;
+    font-size: 20px;
+  }
+}
+/* Stage 2 - Section 22 - royal retreat introduction */
+.royal-retreat {
+  overflow: hidden;
+  color: #323232;
+  background: #e5e5e3;
+}
+
+.royal-retreat__panel {
+  position: relative;
+  width: 64.28vw;
+  min-height: 57.15vw;
+  margin: 0 auto;
+  overflow: hidden;
+  background: #fbfbfa;
+}
+
+.royal-retreat__eyebrow {
+  position: absolute;
+  top: 7.86vw;
+  right: 0;
+  left: 0;
+  margin: 0;
+  color: #303030;
+  font-size: clamp(13px, 0.78vw, 22px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.18em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.royal-retreat h2 {
+  position: absolute;
+  top: 11.12vw;
+  right: 4.4vw;
+  left: 4.4vw;
+  margin: 0;
+  color: #2b2b2b;
+  font-family: var(--font-display);
+  font-size: clamp(68px, 5.06vw, 142px);
+  font-weight: 400;
+  line-height: 0.82;
+  letter-spacing: -0.055em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.royal-retreat h2 span {
+  display: block;
+}
+
+.royal-retreat__copy {
+  position: absolute;
+  top: 27.15vw;
+  left: 50%;
+  width: 37.7vw;
+  margin: 0;
+  color: #6e6e6a;
+  font-size: clamp(16px, 0.95vw, 27px);
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: -0.02em;
+  text-align: center;
+  transform: translateX(-50%);
+}
+
+.royal-retreat__gallery {
+  position: absolute;
+  top: 31.55vw;
+  left: 0;
+  display: grid;
+  grid-template-columns: 11.25vw 38.88vw 11.25vw;
+  gap: 1.45vw;
+  width: 64.28vw;
+}
+
+.royal-retreat__image {
+  display: block;
+  width: 100%;
+  height: 24.05vw;
+  object-fit: cover;
+  background: #d9d6cf;
+}
+
+.royal-retreat__image--one {
+  object-position: 46% 45%;
+}
+
+.royal-retreat__image--two {
+  object-position: center center;
+}
+
+.royal-retreat__image--three {
+  object-position: 52% 55%;
+}
+
+@media (max-width: 991.98px) {
+  .royal-retreat {
+    background: #fbfbfa;
+  }
+
+  .royal-retreat__panel {
+    width: 100%;
+    min-height: 0;
+    padding: 92px 28px 86px;
+  }
+
+  .royal-retreat__eyebrow,
+  .royal-retreat h2,
+  .royal-retreat__copy,
+  .royal-retreat__gallery {
+    position: static;
+  }
+
+  .royal-retreat__eyebrow {
+    margin-bottom: 42px;
+  }
+
+  .royal-retreat h2 {
+    max-width: 780px;
+    margin: 0 auto 36px;
+    font-size: clamp(76px, 12vw, 128px);
+    transform: none;
+  }
+
+  .royal-retreat__copy {
+    width: auto;
+    max-width: 680px;
+    margin: 0 auto 58px;
+    transform: none;
+  }
+
+  .royal-retreat__gallery {
+    display: grid;
+    grid-template-columns: 0.62fr 1.38fr;
+    gap: 22px;
+    width: 100%;
+  }
+
+  .royal-retreat__image {
+    height: 44vw;
+    min-height: 310px;
+  }
+
+  .royal-retreat__image--three {
+    grid-column: 1 / -1;
+    height: 42vw;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .royal-retreat__panel {
+    padding: 70px 20px 68px;
+  }
+
+  .royal-retreat__eyebrow {
+    margin-bottom: 30px;
+    font-size: 12px;
+  }
+
+  .royal-retreat h2 {
+    margin-bottom: 28px;
+    font-size: 46px;
+    line-height: 0.88;
+  }
+
+  .royal-retreat__copy {
+    margin-bottom: 42px;
+    font-size: 15px;
+  }
+
+  .royal-retreat__gallery {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .royal-retreat__image,
+  .royal-retreat__image--three {
+    height: 68vw;
+    min-height: 248px;
+  }
+}
+/* Stage 2 - Section 23 - signature suites gallery */
+.signature-suites {
+  overflow: hidden;
+  color: #1f1f1c;
+  background: #e8e8e6;
+}
+
+.signature-suites__inner {
+  position: relative;
+  width: 87.5vw;
+  min-height: 30.36vw;
+  margin: 0 auto;
+  overflow: hidden;
+  background: #fbfbfa;
+}
+
+.signature-suites h2 {
+  position: absolute;
+  top: 7.42vw;
+  left: 2.64vw;
+  z-index: 2;
+  margin: 0;
+  color: #1d1d1b;
+  font-family: var(--font-display);
+  font-size: clamp(58px, 4.15vw, 78px);
+  font-weight: 400;
+  line-height: 0.88;
+  letter-spacing: -0.055em;
+  text-transform: uppercase;
+}
+
+.signature-suites__note {
+  position: absolute;
+  top: 15.9vw;
+  right: 4.55vw;
+  width: 22.5vw;
+  margin: 0;
+  color: #66635d;
+  font-size: clamp(13px, 0.76vw, 16px);
+  font-weight: 500;
+  line-height: 1.34;
+  letter-spacing: -0.015em;
+  text-align: center;
+}
+
+.signature-suites__gallery {
+  position: absolute;
+  top: 17.05vw;
+  left: 2.64vw;
+  display: grid;
+  grid-template-columns: 15.3vw 9.7vw 30.35vw 9.7vw 15.3vw;
+  gap: 0.64vw;
+  align-items: center;
+  width: max-content;
+}
+
+.signature-suites__tile {
+  position: relative;
+  overflow: hidden;
+  background: #ddd;
+}
+
+.signature-suites__tile img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.signature-suites__tile--side {
+  height: 15.05vw;
+}
+
+.signature-suites__tile--hero {
+  height: 30.55vw;
+}
+
+.signature-suites__tile--one img {
+  object-position: 48% center;
+}
+
+.signature-suites__tile--two img {
+  object-position: center 55%;
+}
+
+.signature-suites__tile--hero img {
+  object-position: center 44%;
+}
+
+.signature-suites__tile--four img {
+  object-position: 50% 50%;
+}
+
+.signature-suites__tile--five img {
+  object-position: 52% center;
+}
+
+.signature-suites__tile--hero h3 {
+  position: absolute;
+  right: 0.88vw;
+  bottom: 0.66vw;
+  margin: 0;
+  color: #fffaf0;
+  font-family: var(--font-display);
+  font-size: clamp(20px, 1.35vw, 26px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+.signature-suites__controls {
+  position: absolute;
+  right: 2.64vw;
+  bottom: 5.72vw;
+  left: 2.64vw;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.signature-suites__control {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.15vw;
+  min-width: 62px;
+  height: 4.15vw;
+  min-height: 62px;
+  border: 1px solid rgba(31, 31, 28, 0.08);
+  border-radius: 50%;
+  color: #1d1d1b;
+  background: #fffefc;
+  box-shadow: 0 10px 30px rgba(20, 20, 18, 0.03);
+  pointer-events: auto;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.signature-suites__control:hover,
+.signature-suites__control:focus-visible {
+  border-color: rgba(31, 31, 28, 0.22);
+  transform: translateY(-2px);
+}
+
+.signature-suites__control:focus-visible {
+  outline: 3px solid rgba(31, 31, 28, 0.16);
+  outline-offset: 4px;
+}
+
+@media (max-width: 991.98px) {
+  .signature-suites {
+    background: #fbfbfa;
+  }
+
+  .signature-suites__inner {
+    width: 100%;
+    min-height: 0;
+    padding: 82px 28px 86px;
+  }
+
+  .signature-suites h2,
+  .signature-suites__note,
+  .signature-suites__gallery,
+  .signature-suites__controls {
+    position: static;
+  }
+
+  .signature-suites h2 {
+    margin-bottom: 32px;
+    font-size: clamp(62px, 11vw, 96px);
+  }
+
+  .signature-suites__note {
+    width: auto;
+    max-width: 520px;
+    margin: 0 0 42px auto;
+    text-align: left;
+  }
+
+  .signature-suites__gallery {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    width: 100%;
+  }
+
+  .signature-suites__tile--side,
+  .signature-suites__tile--hero {
+    height: 34vw;
+    min-height: 260px;
+  }
+
+  .signature-suites__tile--hero {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+
+  .signature-suites__controls {
+    margin-top: 34px;
+    pointer-events: auto;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .signature-suites__inner {
+    padding: 62px 20px 70px;
+  }
+
+  .signature-suites h2 {
+    font-size: 46px;
+  }
+
+  .signature-suites__note {
+    margin-bottom: 32px;
+    font-size: 14px;
+  }
+
+  .signature-suites__gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .signature-suites__tile--side,
+  .signature-suites__tile--hero {
+    height: 64vw;
+    min-height: 234px;
+  }
+
+  .signature-suites__control {
+    min-width: 56px;
+    min-height: 56px;
+  }
+}
+/* Stage 2 - Section 24 - Terra di Luce editorial */
+.terra-luce {
+  overflow: hidden;
+  color: #4d5748;
+  background: #a7a196;
+}
+
+.terra-luce__panel {
+  position: relative;
+  width: 60.72vw;
+  min-height: 30.36vw;
+  margin: 0 auto;
+  overflow: hidden;
+  background: #ddd8cf;
+}
+
+.terra-luce h2 {
+  position: absolute;
+  top: 5.85vw;
+  left: 50%;
+  width: 41.2vw;
+  margin: 0;
+  color: #505a4c;
+  font-family: var(--font-display);
+  font-size: clamp(32px, 2.12vw, 60px);
+  font-weight: 400;
+  line-height: 0.96;
+  letter-spacing: -0.035em;
+  text-align: center;
+  transform: translateX(-50%);
+}
+
+.terra-luce h2 span,
+.terra-luce h2 em {
+  color: #90a329;
+  font-weight: 400;
+}
+
+.terra-luce h2 em {
+  font-style: italic;
+}
+
+.terra-luce p {
+  position: absolute;
+  top: 14.85vw;
+  left: 35.42vw;
+  width: 12.1vw;
+  margin: 0;
+  color: #596052;
+  font-size: clamp(12px, 0.68vw, 19px);
+  font-weight: 600;
+  line-height: 1.13;
+  letter-spacing: -0.035em;
+}
+
+.terra-luce img {
+  position: absolute;
+  top: 17.28vw;
+  left: 50.42vw;
+  display: block;
+  width: 19.15vw;
+  height: 11vw;
+  object-fit: cover;
+  object-position: center center;
+}
+
+@media (max-width: 991.98px) {
+  .terra-luce {
+    background: #ddd8cf;
+  }
+
+  .terra-luce__panel {
+    width: 100%;
+    min-height: 0;
+    padding: 82px 28px 86px;
+  }
+
+  .terra-luce h2,
+  .terra-luce p,
+  .terra-luce img {
+    position: static;
+    transform: none;
+  }
+
+  .terra-luce h2 {
+    width: auto;
+    max-width: 830px;
+    margin: 0 auto 56px;
+    font-size: clamp(42px, 7.3vw, 76px);
+  }
+
+  .terra-luce p {
+    width: auto;
+    max-width: 460px;
+    margin: 0 0 34px 18%;
+    font-size: 18px;
+  }
+
+  .terra-luce img {
+    width: 56vw;
+    height: 37.35vw;
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .terra-luce__panel {
+    padding: 66px 20px 70px;
+  }
+
+  .terra-luce h2 {
+    margin-bottom: 42px;
+    font-size: 37px;
+  }
+
+  .terra-luce p {
+    max-width: none;
+    margin: 0 0 30px;
+    font-size: 16px;
+  }
+
+  .terra-luce img {
+    width: 100%;
+    height: 64vw;
+    min-height: 242px;
   }
 }
