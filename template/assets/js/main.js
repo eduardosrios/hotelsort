@@ -203,7 +203,23 @@
       $success.prop("hidden", true);
     }, 1800);
   });
-  $("#bookingForm").on("submit", function (event) {
+  $("#footerNewsletterForm").on("submit", function (event) {
+    event.preventDefault();
+
+    if (!this.checkValidity()) {
+      this.reportValidity();
+      return;
+    }
+
+    const form = this;
+    const $success = $(form).find(".site-footer__success");
+    $success.prop("hidden", false);
+
+    window.setTimeout(function () {
+      form.reset();
+      $success.prop("hidden", true);
+    }, 1800);
+  });  $("#bookingForm").on("submit", function (event) {
     event.preventDefault();
 
     const form = this;
