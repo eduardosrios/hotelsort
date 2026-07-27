@@ -3121,9 +3121,9 @@ select {
 .featured-testimonial__nav button {
   display: inline-grid;
   width: 3.17vw;
-  min-width: 44px;
+  min-width: 48px;
   height: 3.17vw;
-  min-height: 44px;
+  min-height: 48px;
   padding: 0;
   place-items: center;
   border: 1px solid currentColor;
@@ -3273,9 +3273,9 @@ select {
 
   .featured-testimonial__nav button {
     width: 44px;
-    min-width: 44px;
+    min-width: 48px;
     height: 44px;
-    min-height: 44px;
+    min-height: 48px;
   }
 
   .featured-testimonial__portrait {
@@ -10056,8 +10056,8 @@ html body main#main-content section.restaurant-story.restaurant-story.restaurant
   -webkit-text-fill-color: #f6f2e8 !important;
 }
 /* STAGE 04N premium select/date field indicators using Font Awesome. */
-form label:has(select),
-form label:has(input[type="date"]) {
+form :is(label, div):has(> select),
+form :is(label, div):has(> input[type="date"]) {
   position: relative !important;
 }
 
@@ -10086,8 +10086,8 @@ form select::-ms-expand {
   display: none !important;
 }
 
-form label:has(select)::after,
-form label:has(input[type="date"])::after {
+form :is(label, div):has(> select)::after,
+form :is(label, div):has(> input[type="date"])::after {
   position: absolute !important;
   right: 12px !important;
   bottom: 10px !important;
@@ -10100,23 +10100,23 @@ form label:has(input[type="date"])::after {
   background: #181711 !important;
   color: #f6f2e8 !important;
   -webkit-text-fill-color: #f6f2e8 !important;
-  font-family: "Font Awesome 6 Free" !important;
+  font-family: "Font Awesome 7 Free" !important;
   font-weight: 900 !important;
   font-size: 16px !important;
   line-height: 1 !important;
   z-index: 2 !important;
 }
 
-form label:has(select)::after {
+form :is(label, div):has(> select)::after {
   content: "\f078" !important;
 }
 
-form label:has(input[type="date"])::after {
+form :is(label, div):has(> input[type="date"])::after {
   content: "\f073" !important;
 }
 
-.hotelsort-modal form label:has(select)::after,
-.hotelsort-modal form label:has(input[type="date"])::after {
+.hotelsort-modal form :is(label, div):has(> select)::after,
+.hotelsort-modal form :is(label, div):has(> input[type="date"])::after {
   bottom: 8px !important;
 }
 /* Stage 4 - Section 14 replacement - Arbany membership */
@@ -11278,13 +11278,13 @@ main textarea,
 /* STAGE 06 - accessible close and secondary-action hit areas */
 .hotelsort-modal .btn-close,
 .hotelsort-offcanvas .btn-close {
-  min-width: 44px;
-  min-height: 44px;
+  min-width: 48px;
+  min-height: 48px;
   background-position: center;
 }
 
 .hotelsort-modal .modal-footer .btn-link {
-  min-height: 44px;
+  min-height: 48px;
   padding-block: 8px;
 }
 
@@ -11316,4 +11316,110 @@ body {
 body.modal-open .auxiliary-link,
 body:has(.offcanvas.show) .auxiliary-link {
   z-index: 1040 !important;
+}
+
+
+/* STAGE 04Oa/04Ob - full-width surfaces with Bootstrap-constrained content. */
+.skip-link {
+  min-height: 48px;
+}
+
+.brand__symbol {
+  width: 42px !important;
+  min-width: 42px;
+  height: 42px !important;
+}
+
+.restaurant-story__marquee div {
+  font-size: 16px !important;
+}
+
+form input[type="date"]::-webkit-calendar-picker-indicator {
+  position: absolute !important;
+  right: 0 !important;
+  width: 58px !important;
+  height: 100% !important;
+  opacity: 0 !important;
+  cursor: pointer;
+}
+.stage-section-surface {
+  width: 100% !important;
+  max-width: none !important;
+  margin-inline: 0 !important;
+}
+
+.stage-container {
+  margin-inline: auto !important;
+}
+
+.stage-layout-row {
+  --bs-gutter-x: 30px;
+  --bs-gutter-y: 30px;
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.stage-layout-row > [class*="col-"],
+.stage-layout-row > .stage-bootstrap-col {
+  width: auto !important;
+  max-width: none;
+  flex: initial;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.stage6-rooms__grid.stage-layout-row,
+.escape-gallery__grid.stage-layout-row,
+.restaurant-story__grid.stage-layout-row,
+.arbany-membership__plans.stage-layout-row,
+.wardel-suites__grid.stage-layout-row,
+.ritual-index__list.stage-layout-row,
+.horizon-destinations__track.stage-layout-row,
+.signature-suites__gallery.stage-layout-row,
+.activities-gallery__grid.stage-layout-row,
+.hotelix-featured__cards.stage-layout-row,
+.trending-destinations__grid.stage-layout-row {
+  column-gap: 30px;
+  row-gap: 30px;
+}
+
+.stage6-rooms__grid.stage-layout-row > [class*="col-"],
+.escape-gallery__grid.stage-layout-row > [class*="col-"],
+.restaurant-story__grid.stage-layout-row > [class*="col-"],
+.arbany-membership__plans.stage-layout-row > [class*="col-"],
+.wardel-suites__grid.stage-layout-row > [class*="col-"],
+.ritual-index__list.stage-layout-row > [class*="col-"],
+.horizon-destinations__track.stage-layout-row > [class*="col-"],
+.signature-suites__gallery.stage-layout-row > [class*="col-"],
+.activities-gallery__grid.stage-layout-row > [class*="col-"],
+.hotelix-featured__cards.stage-layout-row > [class*="col-"],
+.trending-destinations__grid.stage-layout-row > [class*="col-"] {
+  width: auto !important;
+  flex: initial;
+}
+
+.stage6-travel.video-variant > video.section-video {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 0;
+}
+
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+  .stage-container {
+    width: 100% !important;
+    max-width: 1140px !important;
+  }
+}
+
+@media (min-width: 1400px) {
+  .stage-container {
+    width: 100% !important;
+    max-width: 1320px !important;
+  }
+}
+
+@media (max-width: 1199.98px) {
+  .stage-container {
+    max-width: 100%;
+  }
 }

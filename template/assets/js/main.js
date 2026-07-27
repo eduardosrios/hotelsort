@@ -311,6 +311,71 @@
   updateStickyTopbar();
   window.addEventListener('scroll', requestStickyTopbarUpdate, { passive: true });
   window.addEventListener('resize', requestStickyTopbarUpdate);
+  // STAGE 04F: keep six source sections intact and add one motion-led duplicate beneath each.
+  const stageVideoVariants = [
+    { section: '7', video: '8045184', label: 'A slow journey through a restorative countryside escape' },
+    { section: '13', video: '8764786', label: 'An elegant Hotelsort dining experience in motion' },
+    { section: '15', video: '19403230', label: 'A calm, light-filled Hotelsort guest room in motion' },
+    { section: '17', video: '29690876', label: 'A considered city hotel sanctuary in motion' },
+    { section: '20', video: '5393521', label: 'A restorative Hotelsort wellness ritual in motion' },
+    { section: '25', video: '6629915', label: 'A secluded Hotelsort retreat surrounded by nature' }
+  ];
+
+  stageVideoVariants.forEach(function (variant) {
+    const sourceSection = document.querySelector(`main > section[data-section="${variant.section}"]:not([data-video-variant])`);
+    if (!sourceSection || document.querySelector(`[data-video-variant="${variant.section}"]`)) {
+      return;
+    }
+
+    const duplicate = sourceSection.cloneNode(true);
+    duplicate.dataset.section = `${variant.section}-video`;
+    duplicate.dataset.videoVariant = variant.section;
+    duplicate.dataset.pexelsVideoId = variant.video;
+    duplicate.classList.add('video-variant', `video-variant--section-${variant.section}`);
+
+    const remappedIds = new Map();
+    duplicate.querySelectorAll('[id]').forEach(function (element) {
+      const previousId = element.id;
+      const nextId = `${previousId}-video`;
+      remappedIds.set(previousId, nextId);
+      element.id = nextId;
+    });
+    if (duplicate.id) {
+      const previousId = duplicate.id;
+      const nextId = `${previousId}-video`;
+      remappedIds.set(previousId, nextId);
+      duplicate.id = nextId;
+    }
+    ['aria-labelledby', 'aria-describedby', 'for'].forEach(function (attribute) {
+      [duplicate].concat(Array.from(duplicate.querySelectorAll(`[${attribute}]`))).forEach(function (element) {
+        const value = element.getAttribute(attribute);
+        if (remappedIds.has(value)) {
+          element.setAttribute(attribute, remappedIds.get(value));
+        }
+      });
+    });
+
+    duplicate.querySelectorAll('img:not(.flaticon-inline-icon):not(.flaticon-decor-icon)').forEach(function (image) {
+      const video = document.createElement('video');
+      video.className = `${image.className} section-video`.trim();
+      video.autoplay = true;
+      video.muted = true;
+      video.loop = true;
+      video.playsInline = true;
+      video.preload = 'metadata';
+      video.poster = image.getAttribute('src') || '';
+      video.setAttribute('aria-label', image.getAttribute('alt') || variant.label);
+      if (image.hasAttribute('width')) video.setAttribute('width', image.getAttribute('width'));
+      if (image.hasAttribute('height')) video.setAttribute('height', image.getAttribute('height'));
+      const source = document.createElement('source');
+      source.src = `https://www.pexels.com/download/video/${variant.video}/`;
+      source.type = 'video/mp4';
+      video.appendChild(source);
+      image.replaceWith(video);
+    });
+
+    sourceSection.insertAdjacentElement('afterend', duplicate);
+  });
   // STAGE 05: premium interactive layer.
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.documentElement.classList.add('stage5-js-ready');
