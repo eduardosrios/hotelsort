@@ -253,21 +253,38 @@
     }
   });
 
-  // STAGE 04J: sticky topbar appears after scroll and hides when footer enters viewport.
+  // STAGE 04J: sticky topbar appears only while scrolling upward after initial scroll.
   const stickyTopbar = document.querySelector('[data-sticky-topbar]');
   const siteFooter = document.querySelector('.site-footer');
   let stickyTicking = false;
   let footerInView = false;
+  let stickyLastScrollY = Math.max(0, window.scrollY);
+  let stickyScrollDirection = 'none';
+  const stickyActivationOffset = 160;
+  const stickyDirectionThreshold = 4;
 
   function updateStickyTopbar() {
     if (!stickyTopbar) {
       return;
     }
 
-    const scrolled = window.scrollY > 160;
+    const currentScrollY = Math.max(0, window.scrollY);
+    const scrollDelta = currentScrollY - stickyLastScrollY;
+
+    if (Math.abs(scrollDelta) >= stickyDirectionThreshold) {
+      stickyScrollDirection = scrollDelta > 0 ? 'down' : 'up';
+      stickyLastScrollY = currentScrollY;
+    }
+
+    const scrolled = currentScrollY > stickyActivationOffset;
     const footerRect = siteFooter ? siteFooter.getBoundingClientRect() : null;
     const footerVisible = footerInView || (footerRect ? footerRect.top <= window.innerHeight && footerRect.bottom >= 0 : false);
-    const show = scrolled && !footerVisible;
+    const show = scrolled && stickyScrollDirection === 'up' && !footerVisible;
+
+    if (!scrolled) {
+      stickyScrollDirection = 'none';
+      stickyLastScrollY = currentScrollY;
+    }
 
     stickyTopbar.classList.toggle('is-visible', show);
     stickyTopbar.setAttribute('aria-hidden', String(!show));
