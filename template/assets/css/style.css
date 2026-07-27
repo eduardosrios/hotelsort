@@ -9576,9 +9576,7 @@ html body main > section.moments-editorial .moments-editorial__stats dt {
 
 .video-variant video.section-video {
   display: block !important;
-  width: 100% !important;
-  height: 100% !important;
-  min-height: inherit !important;
+  max-width: 100%;
   object-fit: cover !important;
   background: #181711 !important;
 }
@@ -9589,21 +9587,52 @@ html body main > section.moments-editorial .moments-editorial__stats dt {
   z-index: 0 !important;
 }
 
-.restaurant-story.video-variant .restaurant-story__hero.section-video,
 .restaurant-story.video-variant .restaurant-story__grid video.section-video,
-.room-comfort.video-variant .room-comfort__image.section-video,
-.modern-sanctuary.video-variant .modern-sanctuary__image.section-video,
 .ritual-index.video-variant .ritual-index__visual video.section-video,
 .qelli-nature.video-variant .qelli-nature__image video.section-video {
   width: 100% !important;
-  height: 100% !important;
   object-fit: cover !important;
 }
 
-.restaurant-story.video-variant .restaurant-story__grid video.section-video,
-.ritual-index.video-variant .ritual-index__visual video.section-video,
 .qelli-nature.video-variant .qelli-nature__image video.section-video {
+  height: 100% !important;
   min-height: 100% !important;
+}
+
+.restaurant-story.video-variant .restaurant-story__grid video.section-video {
+  height: 34vw !important;
+  min-height: 0 !important;
+}
+
+.ritual-index.video-variant .ritual-index__visual video.section-video {
+  height: 14.9vw !important;
+  min-height: 240px !important;
+}
+
+@media (max-width: 991.98px) {
+  .restaurant-story.video-variant .restaurant-story__grid video.section-video {
+    height: 42vw !important;
+  }
+
+  .ritual-index.video-variant .ritual-index__visual video.section-video {
+    height: 36vw !important;
+    min-height: 260px !important;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .restaurant-story.video-variant .restaurant-story__grid video.section-video {
+    height: 116vw !important;
+  }
+
+  .ritual-index.video-variant .ritual-index__visual video.section-video {
+    height: 56vw !important;
+    min-height: 218px !important;
+  }
+
+  .room-comfort.video-variant .room-comfort__image--small.section-video {
+    max-width: none;
+  }
 }
 
 .video-variant video.section-video::-webkit-media-controls,
@@ -11433,6 +11462,10 @@ form input[type="date"]::-webkit-calendar-picker-indicator {
   position: absolute !important;
   inset: 0 !important;
   z-index: 0;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  object-fit: cover !important;
 }
 
 @media (min-width: 1200px) and (max-width: 1399.98px) {
