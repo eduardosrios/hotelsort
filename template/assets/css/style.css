@@ -11517,3 +11517,82 @@ form input[type="date"]::-webkit-calendar-picker-indicator {
   outline: 1px solid rgba(24, 23, 17, .45);
   outline-offset: 2px;
 }
+
+/* Quick-note fixes: keep editorial copy inside Bootstrap container bounds. */
+@media (min-width: 1400px) {
+  .stage6-dining__copy,
+  .stage6-experience__copy {
+    padding-left: calc((100vw - 1320px) / 2 - 15px) !important;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+  .stage6-dining__copy,
+  .stage6-experience__copy {
+    padding-left: calc((100vw - 1140px) / 2 - 15px) !important;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .stage6-dining__copy,
+  .stage6-experience__copy {
+    padding-left: max(0px, calc((100vw - 960px) / 2 - 15px)) !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .stage6-dining__copy,
+  .stage6-experience__copy {
+    padding-left: max(0px, calc((100vw - 720px) / 2 - 15px)) !important;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .stage6-dining__copy,
+  .stage6-experience__copy {
+    padding-left: max(0px, calc((100vw - 540px) / 2 - 15px)) !important;
+  }
+}
+
+/* Footer gallery is full-bleed; footer content uses the full Bootstrap container. */
+.site-footer {
+  padding-inline: 0;
+}
+
+.site-footer__panel {
+  padding-inline: 0;
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .site-footer__shell {
+    width: 100%;
+    max-width: 960px !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .site-footer__shell {
+    width: 100%;
+    max-width: 720px !important;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .site-footer__shell {
+    width: 100%;
+    max-width: 540px !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .site-footer__gallery {
+    height: clamp(190px, calc(26.6667vw - 6.4px), 352px);
+    min-height: 0;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .site-footer__panel {
+    padding-inline: 22px;
+  }
+}
