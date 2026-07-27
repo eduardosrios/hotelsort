@@ -11348,6 +11348,37 @@ form input[type="date"]::-webkit-calendar-picker-indicator {
   margin-inline: 0 !important;
 }
 
+/*
+ * STAGE 04Oa: the visual surface belongs to the full-width section.
+ * Bootstrap containers constrain content only; their former contrasting
+ * parent colors created false boxed canvases and painted side gutters.
+ */
+.stage6-locations {
+  background-color: #fff !important;
+}
+
+.restaurant-story {
+  background-color: #f8f7f2 !important;
+}
+
+.photo-gallery-wave,
+.royal-retreat,
+.signature-suites,
+.qelli-nature,
+.solea-manifest {
+  background-color: #fff !important;
+}
+
+.terra-luce,
+.grace-rooms,
+.hotelix-featured {
+  background-color: #f6f2e8 !important;
+}
+
+.site-footer {
+  background-color: #181711 !important;
+}
+
 .stage-container {
   margin-inline: auto !important;
 }
