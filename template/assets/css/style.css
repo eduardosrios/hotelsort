@@ -11487,3 +11487,33 @@ form input[type="date"]::-webkit-calendar-picker-indicator {
     max-width: 100%;
   }
 }
+
+/* Section 02: source-matched location buttons. */
+.stage6-locations__list li:first-child {
+  position: relative;
+  z-index: 1;
+  border-bottom-color: transparent;
+}
+
+.stage6-locations__list button {
+  color: #4a4742 !important;
+  background-color: #fff;
+}
+
+.stage6-locations__list li:first-child button {
+  box-shadow: 0 6px 22px rgba(24, 23, 17, .14) !important;
+}
+
+.stage6-locations__list button:hover,
+.stage6-locations__list button:focus-visible {
+  padding-left: max(16px, .95em) !important;
+  color: #181711 !important;
+  background-color: #fff;
+  box-shadow: 0 6px 22px rgba(24, 23, 17, .14) !important;
+  transform: none !important;
+}
+
+.stage6-locations__list button:focus-visible {
+  outline: 1px solid rgba(24, 23, 17, .45);
+  outline-offset: 2px;
+}
