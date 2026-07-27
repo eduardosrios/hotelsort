@@ -8979,7 +8979,7 @@ body :is(blockquote):not(h1 *):not(h2 *):not(h3 *):not(h4 *):not(h5 *):not(h6 *)
   pointer-events: auto !important;
 }
 /* STAGE 04B contrast discipline: accent is surface/detail; readable text uses ink or ivory. */
-main > section:not(.hero):not(.relax-banner):not(.room-comfort):not(.activities-gallery):not(.modern-sanctuary):not(.ritual-index):not(.double-room):not(.moments-editorial) :is(h1, h2, h3, h4, h5, h6, p, a, button, span, strong, em, li, dt, dd, figcaption, label, input, select, textarea, blockquote):not(.fa):not(.fa-solid):not(.fa-regular):not(.fa-brands) {
+main > section:not(.hero):not(.relax-banner):not(.room-comfort):not(.activities-gallery):not(.modern-sanctuary):not(.ritual-index):not(.double-room):not(.moments-editorial):not(.arbany-membership) :is(h1, h2, h3, h4, h5, h6, p, a, button, span, strong, em, li, dt, dd, figcaption, label, input, select, textarea, blockquote):not(.fa):not(.fa-solid):not(.fa-regular):not(.fa-brands) {
   color: #181711 !important;
 }
 
@@ -9039,7 +9039,7 @@ html body footer.site-footer .site-footer__form button {
   color: #181711 !important;
 }
 /* STAGE 04B Chromium text-fill mirror for final rendered contrast. */
-main > section:not(.hero):not(.relax-banner):not(.room-comfort):not(.activities-gallery):not(.modern-sanctuary):not(.ritual-index):not(.double-room):not(.moments-editorial) :is(h1, h2, h3, h4, h5, h6, p, a, button, span, strong, em, li, dt, dd, figcaption, label, input, select, textarea, blockquote):not(.fa):not(.fa-solid):not(.fa-regular):not(.fa-brands) {
+main > section:not(.hero):not(.relax-banner):not(.room-comfort):not(.activities-gallery):not(.modern-sanctuary):not(.ritual-index):not(.double-room):not(.moments-editorial):not(.arbany-membership) :is(h1, h2, h3, h4, h5, h6, p, a, button, span, strong, em, li, dt, dd, figcaption, label, input, select, textarea, blockquote):not(.fa):not(.fa-solid):not(.fa-regular):not(.fa-brands) {
   -webkit-text-fill-color: #181711 !important;
 }
 
@@ -10119,328 +10119,252 @@ form label:has(input[type="date"])::after {
 .hotelsort-modal form label:has(input[type="date"])::after {
   bottom: 8px !important;
 }
-/* Stage 4 - Section 14 replacement - Arbany selection */
-.arbany-selection {
+/* Stage 4 - Section 14 replacement - Arbany membership */
+.arbany-membership {
   position: relative;
-  overflow: hidden;
-  padding: 112px 54px;
-  color: #f6f2e8;
-  background: #181711;
-}
-
-.arbany-selection__frame {
-  position: relative;
+  isolation: isolate;
   display: grid;
-  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
-  gap: 64px;
-  min-height: 720px;
-  padding: 64px;
-  border: 1px solid rgba(246, 242, 232, 0.22);
+  min-height: 890px;
+  place-items: center;
+  overflow: hidden;
+  padding: 92px max(48px, 7vw);
+  color: #f6f2e8;
   background:
-    linear-gradient(120deg, rgba(167, 148, 115, 0.2), transparent 42%),
-    #181711;
+    linear-gradient(90deg, rgba(10, 10, 9, 0.84) 0%, rgba(10, 10, 9, 0.52) 42%, rgba(10, 10, 9, 0.18) 100%),
+    url("../images/body/unparalleled-service-sofa-alt.jpg") center / cover no-repeat;
 }
 
-.arbany-selection__copy {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  max-width: 560px;
-  flex-direction: column;
-  justify-content: center;
-  padding: 42px 0 42px 18px;
+.arbany-membership__inner {
+  display: grid;
+  width: min(1320px, 100%);
+  grid-template-columns: minmax(290px, 0.72fr) minmax(650px, 1.28fr);
+  gap: clamp(40px, 6vw, 90px);
+  align-items: center;
 }
 
-.arbany-selection__eyebrow {
-  margin: 0 0 32px;
-  color: #a79473;
+.arbany-membership__copy {
+  max-width: 440px;
+}
+
+.arbany-membership__eyebrow {
+  margin: 0 0 28px;
+  color: #d8c39e;
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 800;
+  letter-spacing: 0.16em;
   line-height: 1.1;
-  letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 
-.arbany-selection h2 {
-  max-width: 620px;
+.arbany-membership__copy h2 {
+  max-width: 430px;
   margin: 0;
   color: #f6f2e8;
-  font-size: clamp(64px, 6.2vw, 118px);
-  font-weight: 400;
-  line-height: 0.9;
-  letter-spacing: -0.065em;
+  font-size: clamp(64px, 5.6vw, 92px);
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: -0.055em;
+  line-height: 0.92;
 }
 
-.arbany-selection__text {
-  max-width: 500px;
-  margin: 34px 0 0;
-  color: rgba(246, 242, 232, 0.76);
-  font-size: 18px;
-  line-height: 1.62;
+.arbany-membership__copy > p:last-child {
+  max-width: 430px;
+  margin: 38px 0 0;
+  color: rgba(246, 242, 232, 0.9);
+  font-size: 20px;
+  line-height: 1.5;
 }
 
-.arbany-selection__meta {
+.arbany-membership__plans {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
-  margin-top: 44px;
+  gap: 16px;
+  align-items: end;
 }
 
-.arbany-selection__meta span {
-  display: grid;
-  gap: 8px;
-  padding-top: 18px;
-  border-top: 1px solid rgba(246, 242, 232, 0.28);
-  color: rgba(246, 242, 232, 0.72);
+.arbany-membership__card {
+  display: flex;
+  min-height: 650px;
+  flex-direction: column;
+  padding: 42px 34px 26px;
+  border: 1px solid rgba(24, 23, 17, 0.08);
+  border-radius: 34px 34px 20px 20px;
+  color: #181711;
+  background: rgba(248, 247, 243, 0.94);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(8px);
+}
+
+.arbany-membership__card header {
+  min-height: 130px;
+  text-align: center;
+}
+
+.arbany-membership__card h3 {
+  margin: 0 0 12px;
+  color: #181711;
+  font-size: clamp(36px, 3vw, 48px);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.arbany-membership__card--gold h3 {
+  color: #a47d3f;
+}
+
+.arbany-membership__card header p {
+  max-width: 290px;
+  margin: 0 auto;
+  color: rgba(24, 23, 17, 0.76);
   font-size: 16px;
-  line-height: 1.35;
+  line-height: 1.42;
 }
 
-.arbany-selection__meta strong {
-  color: #f6f2e8;
-  font-family: "Cormorant Garamond", serif;
-  font-size: 48px;
-  font-weight: 500;
-  line-height: 0.9;
+.arbany-membership__card ul {
+  display: grid;
+  gap: 16px;
+  margin: 22px 0 34px;
+  padding: 0;
+  list-style: none;
 }
 
-.arbany-selection__button {
+.arbany-membership__card li {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr);
+  gap: 10px;
+  align-items: center;
+  color: rgba(24, 23, 17, 0.86);
+  font-size: 16px;
+  line-height: 1.28;
+}
+
+.arbany-membership__card li i {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border-radius: 50%;
+  color: #6f624b;
+  background: rgba(167, 148, 115, 0.15);
+  font-size: 16px;
+}
+
+.arbany-membership__card > a {
   display: inline-flex;
-  width: fit-content;
-  min-height: 54px;
+  min-height: 56px;
   align-items: center;
   justify-content: center;
-  margin-top: 42px;
+  margin-top: auto;
   padding: 0 28px;
-  border: 1px solid rgba(246, 242, 232, 0.62);
-  border-radius: 999px;
+  border: 1px solid #181711;
+  border-radius: 10px;
   color: #f6f2e8 !important;
   -webkit-text-fill-color: #f6f2e8 !important;
-  background: transparent;
+  background: #181711;
   font-size: 16px;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-decoration: none !important;
   text-transform: uppercase;
-  transition: background 180ms ease, color 180ms ease, transform 180ms ease, border-color 180ms ease;
+  transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
 }
 
-.arbany-selection__button:hover,
-.arbany-selection__button:focus-visible {
-  border-color: #f6f2e8;
-  color: #181711 !important;
-  -webkit-text-fill-color: #181711 !important;
-  background: #f6f2e8;
+.arbany-membership__card--gold > a {
+  border-color: #a47d3f;
+  background: #a47d3f;
+}
+
+html body main > section.arbany-membership .arbany-membership__card > a {
+  color: #f6f2e8 !important;
+  -webkit-text-fill-color: #f6f2e8 !important;
+}
+
+.arbany-membership__card > a:hover,
+.arbany-membership__card > a:focus-visible {
+  border-color: #a79473;
+  background: #a79473;
   transform: translateY(-2px);
 }
 
-.arbany-selection__button:focus-visible {
-  outline: 2px solid #a79473;
-  outline-offset: 4px;
-}
-
-.arbany-selection__visual {
-  position: relative;
-  min-height: 620px;
-  margin: 0;
-  align-self: stretch;
-}
-
-.arbany-selection__visual img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  min-height: 620px;
-  object-fit: cover;
-  object-position: center;
-  filter: saturate(0.9) contrast(1.02);
-}
-
-.arbany-selection__visual::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, transparent 48%, rgba(24, 23, 17, 0.72));
-  pointer-events: none;
-}
-
-.arbany-selection__visual figcaption {
-  position: absolute;
-  right: 28px;
-  bottom: 28px;
-  z-index: 2;
-  display: grid;
-  gap: 6px;
-  width: min(320px, calc(100% - 56px));
-  padding: 24px;
-  color: #181711;
-  background: #f6f2e8;
-}
-
-.arbany-selection__visual figcaption span {
-  color: #a79473;
-  font-size: 16px;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-  line-height: 1.1;
-  text-transform: uppercase;
-}
-
-.arbany-selection__visual figcaption strong {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 32px;
-  font-weight: 500;
-  line-height: 1;
-}
-
-.arbany-selection__card {
-  position: absolute;
-  z-index: 3;
-  width: min(300px, 22vw);
-  padding: 24px;
-  border: 1px solid rgba(246, 242, 232, 0.2);
-  color: #f6f2e8;
-  background: rgba(24, 23, 17, 0.82);
-  backdrop-filter: blur(14px);
-}
-
-.arbany-selection__card--top {
-  top: 104px;
-  right: clamp(280px, 29vw, 520px);
-}
-
-.arbany-selection__card--bottom {
-  right: 96px;
-  bottom: 84px;
-}
-
-.arbany-selection__card span {
-  color: #a79473;
-  font-size: 16px;
-  font-weight: 800;
-  line-height: 1;
-}
-
-.arbany-selection__card h3 {
-  margin: 18px 0 10px;
-  color: #f6f2e8;
-  font-size: clamp(30px, 2.4vw, 48px);
-  font-weight: 400;
-  line-height: 0.98;
-  letter-spacing: -0.035em;
-}
-
-.arbany-selection__card p {
-  margin: 0;
-  color: rgba(246, 242, 232, 0.72);
-  font-size: 16px;
-  line-height: 1.45;
+.arbany-membership__card > a:focus-visible {
+  outline: 3px solid #f6f2e8;
+  outline-offset: 3px;
 }
 
 @media (max-width: 1199.98px) {
-  .arbany-selection {
-    padding: 88px 28px;
+  .arbany-membership {
+    padding-inline: 40px;
   }
 
-  .arbany-selection__frame {
-    gap: 42px;
-    padding: 44px;
+  .arbany-membership__inner {
+    grid-template-columns: minmax(250px, 0.58fr) minmax(610px, 1.42fr);
+    gap: 34px;
   }
 
-  .arbany-selection__card {
-    width: min(280px, 28vw);
-  }
-
-  .arbany-selection__card--top {
-    right: clamp(220px, 31vw, 380px);
+  .arbany-membership__card {
+    padding-inline: 26px;
   }
 }
 
 @media (max-width: 991.98px) {
-  .arbany-selection {
-    padding: 72px 24px;
-  }
-
-  .arbany-selection__frame {
-    display: block;
+  .arbany-membership {
     min-height: 0;
-    padding: 34px;
+    padding: 78px 32px;
+    background-position: 42% center;
   }
 
-  .arbany-selection__copy {
-    max-width: none;
-    padding: 10px 0 42px;
-  }
-
-  .arbany-selection h2 {
-    max-width: 700px;
-    font-size: clamp(58px, 10vw, 96px);
-  }
-
-  .arbany-selection__visual,
-  .arbany-selection__visual img {
-    min-height: 560px;
-  }
-
-  .arbany-selection__card {
-    position: relative;
-    width: auto;
-    margin-top: 18px;
-  }
-
-  .arbany-selection__card--top,
-  .arbany-selection__card--bottom {
-    top: auto;
-    right: auto;
-    bottom: auto;
-  }
-}
-
-@media (max-width: 575.98px) {
-  .arbany-selection {
-    padding: 58px 14px;
-  }
-
-  .arbany-selection__frame {
-    padding: 24px;
-  }
-
-  .arbany-selection__eyebrow {
-    margin-bottom: 24px;
-  }
-
-  .arbany-selection h2 {
-    font-size: 54px;
-    line-height: 0.92;
-  }
-
-  .arbany-selection__text {
-    margin-top: 28px;
-    font-size: 16px;
-  }
-
-  .arbany-selection__meta {
+  .arbany-membership__inner {
     grid-template-columns: 1fr;
-    margin-top: 34px;
   }
 
-  .arbany-selection__button {
-    width: 100%;
+  .arbany-membership__copy,
+  .arbany-membership__copy h2,
+  .arbany-membership__copy > p:last-child {
+    max-width: 680px;
   }
 
-  .arbany-selection__visual,
-  .arbany-selection__visual img {
-    min-height: 420px;
+  .arbany-membership__copy h2 {
+    font-size: clamp(58px, 10vw, 84px);
   }
 
-  .arbany-selection__visual figcaption {
-    right: 18px;
-    bottom: 18px;
-    width: calc(100% - 36px);
-    padding: 20px;
+  .arbany-membership__plans {
+    gap: 20px;
   }
 }
 
+@media (max-width: 680px) {
+  .arbany-membership {
+    padding: 64px 18px;
+    background-position: 36% center;
+  }
+
+  .arbany-membership__copy h2 {
+    font-size: 56px;
+  }
+
+  .arbany-membership__copy > p:last-child {
+    margin-top: 28px;
+    font-size: 18px;
+  }
+
+  .arbany-membership__plans {
+    grid-template-columns: 1fr;
+  }
+
+  .arbany-membership__card {
+    min-height: 0;
+    padding: 36px 24px 24px;
+  }
+
+  .arbany-membership__card header {
+    min-height: 0;
+  }
+
+  .arbany-membership__card ul {
+    margin-bottom: 30px;
+  }
+}
 
 
 

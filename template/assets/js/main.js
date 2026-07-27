@@ -355,7 +355,7 @@
     }
   });
 
-  const parallaxTargets = Array.from(document.querySelectorAll('.hero__image, .relax-banner__image, .arbany-selection__visual img, .modern-sanctuary__image, .qelli-nature__image, .signature-suites__tile--hero img')).filter(Boolean);
+  const parallaxTargets = Array.from(document.querySelectorAll('.hero__image, .relax-banner__image, .modern-sanctuary__image, .qelli-nature__image, .signature-suites__tile--hero img')).filter(Boolean);
   parallaxTargets.forEach(function (target) {
     target.classList.add('stage5-parallax');
   });
@@ -446,19 +446,19 @@
     }, { threshold: 0.55 })
     : null;
 
-  Array.from(document.querySelectorAll('.wellness-stats strong, .arbany-selection__meta strong, .loyalty-benefits strong, .hotelix-featured strong')).forEach(function (el) {
+  Array.from(document.querySelectorAll('.wellness-stats strong, .loyalty-benefits strong, .hotelix-featured strong')).forEach(function (el) {
     if (counterObserver && /\d/.test(el.textContent)) {
       counterObserver.observe(el);
     }
   });
 
-  Array.from(document.querySelectorAll('.escape-gallery__item, .loyalty-benefits__card, .horizon-destinations__card, .signature-suites__tile, .arbany-selection__card, .trending-destinations article, .hotelix-featured article')).forEach(function (card) {
+  Array.from(document.querySelectorAll('.escape-gallery__item, .loyalty-benefits__card, .horizon-destinations__card, .signature-suites__tile, .arbany-membership__card, .trending-destinations article, .hotelix-featured article')).forEach(function (card) {
     card.classList.add('stage5-hot-card');
   });
 
   const galleryModalElement = document.getElementById('galleryModal');
   const galleryModal = galleryModalElement ? bootstrap.Modal.getOrCreateInstance(galleryModalElement) : null;
-  const lightboxSelectors = '.photo-gallery-wave img, .signature-suites img, .escape-gallery__item img, .activities-gallery img, .moments-editorial img, .arbany-selection__visual img';
+  const lightboxSelectors = '.photo-gallery-wave img, .signature-suites img, .escape-gallery__item img, .activities-gallery img, .moments-editorial img';
   Array.from(document.querySelectorAll(lightboxSelectors)).forEach(function (img) {
     if (img.closest('.auxiliary-link') || img.closest('.brand')) {
       return;
