@@ -311,71 +311,6 @@
   updateStickyTopbar();
   window.addEventListener('scroll', requestStickyTopbarUpdate, { passive: true });
   window.addEventListener('resize', requestStickyTopbarUpdate);
-  // STAGE 04F: keep six source sections intact and add one motion-led duplicate beneath each.
-  const stageVideoVariants = [
-    { section: '7', video: '8045184', label: 'A slow journey through a restorative countryside escape' },
-    { section: '13', video: '8764786', label: 'An elegant Hotelsort dining experience in motion' },
-    { section: '15', video: '19403230', label: 'A calm, light-filled Hotelsort guest room in motion' },
-    { section: '17', video: '29690876', label: 'A considered city hotel sanctuary in motion' },
-    { section: '20', video: '5393521', label: 'A restorative Hotelsort wellness ritual in motion' },
-    { section: '25', video: '6629915', label: 'A secluded Hotelsort retreat surrounded by nature' }
-  ];
-
-  stageVideoVariants.forEach(function (variant) {
-    const sourceSection = document.querySelector(`main > section[data-section="${variant.section}"]:not([data-video-variant])`);
-    if (!sourceSection || document.querySelector(`[data-video-variant="${variant.section}"]`)) {
-      return;
-    }
-
-    const duplicate = sourceSection.cloneNode(true);
-    duplicate.dataset.section = `${variant.section}-video`;
-    duplicate.dataset.videoVariant = variant.section;
-    duplicate.dataset.pexelsVideoId = variant.video;
-    duplicate.classList.add('video-variant', `video-variant--section-${variant.section}`);
-
-    const remappedIds = new Map();
-    duplicate.querySelectorAll('[id]').forEach(function (element) {
-      const previousId = element.id;
-      const nextId = `${previousId}-video`;
-      remappedIds.set(previousId, nextId);
-      element.id = nextId;
-    });
-    if (duplicate.id) {
-      const previousId = duplicate.id;
-      const nextId = `${previousId}-video`;
-      remappedIds.set(previousId, nextId);
-      duplicate.id = nextId;
-    }
-    ['aria-labelledby', 'aria-describedby', 'for'].forEach(function (attribute) {
-      [duplicate].concat(Array.from(duplicate.querySelectorAll(`[${attribute}]`))).forEach(function (element) {
-        const value = element.getAttribute(attribute);
-        if (remappedIds.has(value)) {
-          element.setAttribute(attribute, remappedIds.get(value));
-        }
-      });
-    });
-
-    duplicate.querySelectorAll('img:not(.flaticon-inline-icon):not(.flaticon-decor-icon)').forEach(function (image) {
-      const video = document.createElement('video');
-      video.className = `${image.className} section-video`.trim();
-      video.autoplay = true;
-      video.muted = true;
-      video.loop = true;
-      video.playsInline = true;
-      video.preload = 'metadata';
-      video.poster = image.getAttribute('src') || '';
-      video.setAttribute('aria-label', image.getAttribute('alt') || variant.label);
-      if (image.hasAttribute('width')) video.setAttribute('width', image.getAttribute('width'));
-      if (image.hasAttribute('height')) video.setAttribute('height', image.getAttribute('height'));
-      const source = document.createElement('source');
-      source.src = `https://www.pexels.com/download/video/${variant.video}/`;
-      source.type = 'video/mp4';
-      video.appendChild(source);
-      image.replaceWith(video);
-    });
-
-    sourceSection.insertAdjacentElement('afterend', duplicate);
-  });
   // STAGE 05: premium interactive layer.
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.documentElement.classList.add('stage5-js-ready');
@@ -570,41 +505,6 @@
     });
   });
 
-  const videoModalElement = document.getElementById('stage5VideoModal');
-  const videoModal = videoModalElement ? bootstrap.Modal.getOrCreateInstance(videoModalElement) : null;
-  const videoPlayer = document.querySelector('[data-stage5-video-player]');
-  const videoTitle = document.querySelector('[data-stage5-video-title]');
-  Array.from(document.querySelectorAll('.video-variant')).forEach(function (section) {
-    if (section.querySelector('.video-modal-trigger')) {
-      return;
-    }
-    const source = section.querySelector('video source');
-    if (!source || !videoModal || !videoPlayer) {
-      return;
-    }
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.className = 'video-modal-trigger';
-    button.innerHTML = '<i class="fa-solid fa-play" aria-hidden="true"></i><span>Play motion</span>';
-    button.addEventListener('click', function () {
-      const label = section.dataset.stage5Title || section.querySelector('h2, h3')?.textContent?.trim() || 'Featured stay in motion';
-      videoTitle.textContent = label;
-      videoPlayer.setAttribute('poster', section.querySelector('video')?.getAttribute('poster') || '');
-      videoPlayer.setAttribute('src', source.getAttribute('src'));
-      videoPlayer.load();
-      videoModal.show();
-    });
-    section.appendChild(button);
-  });
-
-  if (videoModalElement && videoPlayer) {
-    videoModalElement.addEventListener('hidden.bs.modal', function () {
-      videoPlayer.pause();
-      videoPlayer.removeAttribute('src');
-      videoPlayer.load();
-    });
-  }
-
   function setupDragTrack(track) {
     let dragging = false;
     let startX = 0;
@@ -635,6 +535,119 @@
   }
 
   Array.from(document.querySelectorAll('.horizon-destinations__track, .signature-suites__gallery, .photo-gallery-wave__track, .trending-destinations__grid')).forEach(setupDragTrack);
+  // ETAPA 05: interactions scoped to sections 73-134.
+  const newSections = Array.from(document.querySelectorAll('main > section[data-new-section]'));
+
+  newSections.forEach(function (section) {
+    const track = section.querySelector('[data-new-carousel]');
+    if (track) {
+      const moveTrack = function (direction) {
+        const card = track.querySelector('.new-card');
+        const gap = parseFloat(window.getComputedStyle(track).gap) || 30;
+        const amount = card ? card.getBoundingClientRect().width + gap : track.clientWidth * 0.82;
+        track.scrollBy({ left: amount * direction, behavior: 'smooth' });
+      };
+      section.querySelector('[data-new-prev]')?.addEventListener('click', function () {
+        moveTrack(-1);
+      });
+      section.querySelector('[data-new-next]')?.addEventListener('click', function () {
+        moveTrack(1);
+      });
+      setupDragTrack(track);
+    }
+
+    const tabs = section.querySelector('[data-new-tabs]');
+    if (tabs) {
+      const tabButtons = Array.from(tabs.querySelectorAll('[data-new-tab]'));
+      const filterItems = Array.from(section.querySelectorAll('[data-new-filter-item]'));
+      tabButtons.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          tabButtons.forEach(function (candidate) {
+            const selected = candidate === tab;
+            candidate.setAttribute('aria-selected', String(selected));
+            candidate.tabIndex = selected ? 0 : -1;
+          });
+          const filter = String(tab.dataset.newTab || '').split(' ')[0];
+          filterItems.forEach(function (item) {
+            item.classList.toggle('is-filter-hidden', item.dataset.newFilterItem !== filter);
+          });
+          const result = section.querySelector('[data-new-tab-result]');
+          if (result) {
+            result.textContent = 'Explore ' + tab.textContent.trim() + ' stays curated for this moment.';
+          }
+        });
+      });
+    }
+
+    Array.from(section.querySelectorAll('[data-new-form]')).forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        if (!form.reportValidity()) {
+          return;
+        }
+        const status = form.querySelector('[data-new-form-status]');
+        if (status) {
+          status.textContent = 'Received. A Hotelsort travel curator will be in touch.';
+        }
+        form.classList.add('is-success');
+      });
+    });
+  });
+
+  const revealItems = Array.from(document.querySelectorAll('.new-section [data-new-reveal]'));
+  if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const revealObserver = new IntersectionObserver(function (entries, observer) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    revealItems.forEach(function (item) {
+      revealObserver.observe(item);
+    });
+  } else {
+    revealItems.forEach(function (item) {
+      item.classList.add('is-visible');
+    });
+  }
+
+  const newCounters = Array.from(document.querySelectorAll('.new-section [data-new-counter]'));
+  if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const counterObserver = new IntersectionObserver(function (entries, observer) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) {
+          return;
+        }
+        const element = entry.target;
+        const original = element.textContent.trim();
+        const numeric = Number(original.replace(/[^0-9.]/g, ''));
+        if (!Number.isFinite(numeric)) {
+          observer.unobserve(element);
+          return;
+        }
+        const suffix = original.replace(/[0-9.,]/g, '');
+        const start = performance.now();
+        const duration = 900;
+        const tick = function (now) {
+          const progress = Math.min((now - start) / duration, 1);
+          const value = numeric * (1 - Math.pow(1 - progress, 3));
+          element.textContent = (numeric % 1 ? value.toFixed(1) : Math.round(value).toLocaleString()) + suffix;
+          if (progress < 1) {
+            window.requestAnimationFrame(tick);
+          } else {
+            element.textContent = original;
+          }
+        };
+        window.requestAnimationFrame(tick);
+        observer.unobserve(element);
+      });
+    }, { threshold: 0.45 });
+    newCounters.forEach(function (counter) {
+      counterObserver.observe(counter);
+    });
+  }
 })(window.jQuery, window.bootstrap);
 
 
