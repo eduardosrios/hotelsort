@@ -649,8 +649,83 @@
     });
   }
 })(window.jQuery, window.bootstrap);
+// PREMIUM FIDELITY REBUILD: BEGIN
+document.querySelectorAll('.fidelity-section').forEach((section) => {
+  section.querySelectorAll('[data-fid-thumb]').forEach((thumb) => {
+    thumb.addEventListener('click', () => {
+      section.querySelectorAll('[data-fid-thumb]').forEach((item) => item.classList.remove('is-active'));
+      thumb.classList.add('is-active');
+      const source = thumb.querySelector('img');
+      const main = section.querySelector('.fid-room-main img');
+      if (source && main) { main.src = source.src; main.alt = source.alt.replace(' thumbnail', ''); }
+    });
+  });
+  section.querySelectorAll('[data-fid-play]').forEach((play) => {
+    play.addEventListener('click', () => {
+      play.classList.toggle('is-playing');
+      play.setAttribute('aria-label', play.classList.contains('is-playing') ? 'Pause hotel film' : 'Play hotel film');
+      play.innerHTML = `<i class="fa-solid ${play.classList.contains('is-playing') ? 'fa-pause' : 'fa-play'}" aria-hidden="true"></i>`;
+    });
+  });
+  section.querySelectorAll('form').forEach((form) => {
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (!form.reportValidity()) return;
+      form.classList.add('is-submitted');
+    });
+  });
+});
+// PREMIUM FIDELITY REBUILD: END
 
+// ROUND 2 EXACT FIDELITY INTERACTIONS: BEGIN
+document.querySelectorAll('.r2-section').forEach((section) => {
+  section.querySelectorAll('form').forEach((form) => {
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (typeof form.reportValidity === 'function' && !form.reportValidity()) return;
+      form.classList.add('is-submitted');
+      let status = form.querySelector('[data-r2-form-status]');
+      if (!status) {
+        status = document.createElement('span');
+        status.dataset.r2FormStatus = '';
+        status.className = 'visually-hidden';
+        status.setAttribute('role', 'status');
+        status.setAttribute('aria-live', 'polite');
+        form.appendChild(status);
+      }
+      status.textContent = 'Request received.';
+    });
+  });
 
+  section.querySelectorAll('[data-r2-tabs]').forEach((tabs) => {
+    const buttons = Array.from(tabs.querySelectorAll('button'));
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => {
+        buttons.forEach((candidate) => {
+          const active = candidate === button;
+          candidate.classList.toggle('is-active', active);
+          candidate.setAttribute('aria-pressed', String(active));
+        });
+      });
+    });
+  });
 
+  section.querySelectorAll('.r2-perfect-days button').forEach((day) => {
+    day.addEventListener('click', () => {
+      section.querySelectorAll('.r2-perfect-days button').forEach((candidate) => {
+        const selected = candidate === day;
+        candidate.classList.toggle('is-selected', selected);
+        candidate.setAttribute('aria-pressed', String(selected));
+      });
+    });
+  });
 
-
+  section.querySelectorAll('[data-r2-play]').forEach((play) => {
+    play.addEventListener('click', () => {
+      const playing = play.classList.toggle('is-playing');
+      play.setAttribute('aria-label', playing ? 'Pause hotel film' : 'Play hotel film');
+      play.innerHTML = `<i class="fa-solid ${playing ? 'fa-pause' : 'fa-play'}" aria-hidden="true"></i>`;
+    });
+  });
+});
+// ROUND 2 EXACT FIDELITY INTERACTIONS: END
