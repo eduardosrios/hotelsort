@@ -253,21 +253,38 @@
     }
   });
 
-  // STAGE 04J: sticky topbar appears after scroll and hides when footer enters viewport.
+  // STAGE 04J: sticky topbar appears only while scrolling upward after initial scroll.
   const stickyTopbar = document.querySelector('[data-sticky-topbar]');
   const siteFooter = document.querySelector('.site-footer');
   let stickyTicking = false;
   let footerInView = false;
+  let stickyLastScrollY = Math.max(0, window.scrollY);
+  let stickyScrollDirection = 'none';
+  const stickyActivationOffset = 160;
+  const stickyDirectionThreshold = 4;
 
   function updateStickyTopbar() {
     if (!stickyTopbar) {
       return;
     }
 
-    const scrolled = window.scrollY > 160;
+    const currentScrollY = Math.max(0, window.scrollY);
+    const scrollDelta = currentScrollY - stickyLastScrollY;
+
+    if (Math.abs(scrollDelta) >= stickyDirectionThreshold) {
+      stickyScrollDirection = scrollDelta > 0 ? 'down' : 'up';
+      stickyLastScrollY = currentScrollY;
+    }
+
+    const scrolled = currentScrollY > stickyActivationOffset;
     const footerRect = siteFooter ? siteFooter.getBoundingClientRect() : null;
     const footerVisible = footerInView || (footerRect ? footerRect.top <= window.innerHeight && footerRect.bottom >= 0 : false);
-    const show = scrolled && !footerVisible;
+    const show = scrolled && stickyScrollDirection === 'up' && !footerVisible;
+
+    if (!scrolled) {
+      stickyScrollDirection = 'none';
+      stickyLastScrollY = currentScrollY;
+    }
 
     stickyTopbar.classList.toggle('is-visible', show);
     stickyTopbar.setAttribute('aria-hidden', String(!show));
@@ -355,7 +372,7 @@
     }
   });
 
-  const parallaxTargets = Array.from(document.querySelectorAll('.hero__image, .relax-banner__image, .arbany-selection__visual img, .modern-sanctuary__image, .qelli-nature__image, .signature-suites__tile--hero img')).filter(Boolean);
+  const parallaxTargets = Array.from(document.querySelectorAll('.hero__image, .relax-banner__image, .modern-sanctuary__image, .qelli-nature__image, .signature-suites__tile--hero img')).filter(Boolean);
   parallaxTargets.forEach(function (target) {
     target.classList.add('stage5-parallax');
   });
@@ -446,19 +463,19 @@
     }, { threshold: 0.55 })
     : null;
 
-  Array.from(document.querySelectorAll('.wellness-stats strong, .arbany-selection__meta strong, .loyalty-benefits strong, .hotelix-featured strong')).forEach(function (el) {
+  Array.from(document.querySelectorAll('.wellness-stats strong, .loyalty-benefits strong, .hotelix-featured strong')).forEach(function (el) {
     if (counterObserver && /\d/.test(el.textContent)) {
       counterObserver.observe(el);
     }
   });
 
-  Array.from(document.querySelectorAll('.escape-gallery__item, .loyalty-benefits__card, .horizon-destinations__card, .signature-suites__tile, .arbany-selection__card, .trending-destinations article, .hotelix-featured article')).forEach(function (card) {
+  Array.from(document.querySelectorAll('.escape-gallery__item, .loyalty-benefits__card, .horizon-destinations__card, .signature-suites__tile, .arbany-membership__card, .trending-destinations article, .hotelix-featured article')).forEach(function (card) {
     card.classList.add('stage5-hot-card');
   });
 
   const galleryModalElement = document.getElementById('galleryModal');
   const galleryModal = galleryModalElement ? bootstrap.Modal.getOrCreateInstance(galleryModalElement) : null;
-  const lightboxSelectors = '.photo-gallery-wave img, .signature-suites img, .escape-gallery__item img, .activities-gallery img, .moments-editorial img, .arbany-selection__visual img';
+  const lightboxSelectors = '.photo-gallery-wave img, .signature-suites img, .escape-gallery__item img, .activities-gallery img, .moments-editorial img';
   Array.from(document.querySelectorAll(lightboxSelectors)).forEach(function (img) {
     if (img.closest('.auxiliary-link') || img.closest('.brand')) {
       return;
@@ -487,41 +504,6 @@
       }
     });
   });
-
-  const videoModalElement = document.getElementById('stage5VideoModal');
-  const videoModal = videoModalElement ? bootstrap.Modal.getOrCreateInstance(videoModalElement) : null;
-  const videoPlayer = document.querySelector('[data-stage5-video-player]');
-  const videoTitle = document.querySelector('[data-stage5-video-title]');
-  Array.from(document.querySelectorAll('.video-variant')).forEach(function (section) {
-    if (section.querySelector('.video-modal-trigger')) {
-      return;
-    }
-    const source = section.querySelector('video source');
-    if (!source || !videoModal || !videoPlayer) {
-      return;
-    }
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.className = 'video-modal-trigger';
-    button.innerHTML = '<i class="fa-solid fa-play" aria-hidden="true"></i><span>Play motion</span>';
-    button.addEventListener('click', function () {
-      const label = section.dataset.stage5Title || section.querySelector('h2, h3')?.textContent?.trim() || 'Featured stay in motion';
-      videoTitle.textContent = label;
-      videoPlayer.setAttribute('poster', section.querySelector('video')?.getAttribute('poster') || '');
-      videoPlayer.setAttribute('src', source.getAttribute('src'));
-      videoPlayer.load();
-      videoModal.show();
-    });
-    section.appendChild(button);
-  });
-
-  if (videoModalElement && videoPlayer) {
-    videoModalElement.addEventListener('hidden.bs.modal', function () {
-      videoPlayer.pause();
-      videoPlayer.removeAttribute('src');
-      videoPlayer.load();
-    });
-  }
 
   function setupDragTrack(track) {
     let dragging = false;
@@ -553,9 +535,197 @@
   }
 
   Array.from(document.querySelectorAll('.horizon-destinations__track, .signature-suites__gallery, .photo-gallery-wave__track, .trending-destinations__grid')).forEach(setupDragTrack);
+  // ETAPA 05: interactions scoped to sections 73-134.
+  const newSections = Array.from(document.querySelectorAll('main > section[data-new-section]'));
+
+  newSections.forEach(function (section) {
+    const track = section.querySelector('[data-new-carousel]');
+    if (track) {
+      const moveTrack = function (direction) {
+        const card = track.querySelector('.new-card');
+        const gap = parseFloat(window.getComputedStyle(track).gap) || 30;
+        const amount = card ? card.getBoundingClientRect().width + gap : track.clientWidth * 0.82;
+        track.scrollBy({ left: amount * direction, behavior: 'smooth' });
+      };
+      section.querySelector('[data-new-prev]')?.addEventListener('click', function () {
+        moveTrack(-1);
+      });
+      section.querySelector('[data-new-next]')?.addEventListener('click', function () {
+        moveTrack(1);
+      });
+      setupDragTrack(track);
+    }
+
+    const tabs = section.querySelector('[data-new-tabs]');
+    if (tabs) {
+      const tabButtons = Array.from(tabs.querySelectorAll('[data-new-tab]'));
+      const filterItems = Array.from(section.querySelectorAll('[data-new-filter-item]'));
+      tabButtons.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          tabButtons.forEach(function (candidate) {
+            const selected = candidate === tab;
+            candidate.setAttribute('aria-selected', String(selected));
+            candidate.tabIndex = selected ? 0 : -1;
+          });
+          const filter = String(tab.dataset.newTab || '').split(' ')[0];
+          filterItems.forEach(function (item) {
+            item.classList.toggle('is-filter-hidden', item.dataset.newFilterItem !== filter);
+          });
+          const result = section.querySelector('[data-new-tab-result]');
+          if (result) {
+            result.textContent = 'Explore ' + tab.textContent.trim() + ' stays curated for this moment.';
+          }
+        });
+      });
+    }
+
+    Array.from(section.querySelectorAll('[data-new-form]')).forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        if (!form.reportValidity()) {
+          return;
+        }
+        const status = form.querySelector('[data-new-form-status]');
+        if (status) {
+          status.textContent = 'Received. A Hotelsort travel curator will be in touch.';
+        }
+        form.classList.add('is-success');
+      });
+    });
+  });
+
+  const revealItems = Array.from(document.querySelectorAll('.new-section [data-new-reveal]'));
+  if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const revealObserver = new IntersectionObserver(function (entries, observer) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    revealItems.forEach(function (item) {
+      revealObserver.observe(item);
+    });
+  } else {
+    revealItems.forEach(function (item) {
+      item.classList.add('is-visible');
+    });
+  }
+
+  const newCounters = Array.from(document.querySelectorAll('.new-section [data-new-counter]'));
+  if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const counterObserver = new IntersectionObserver(function (entries, observer) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) {
+          return;
+        }
+        const element = entry.target;
+        const original = element.textContent.trim();
+        const numeric = Number(original.replace(/[^0-9.]/g, ''));
+        if (!Number.isFinite(numeric)) {
+          observer.unobserve(element);
+          return;
+        }
+        const suffix = original.replace(/[0-9.,]/g, '');
+        const start = performance.now();
+        const duration = 900;
+        const tick = function (now) {
+          const progress = Math.min((now - start) / duration, 1);
+          const value = numeric * (1 - Math.pow(1 - progress, 3));
+          element.textContent = (numeric % 1 ? value.toFixed(1) : Math.round(value).toLocaleString()) + suffix;
+          if (progress < 1) {
+            window.requestAnimationFrame(tick);
+          } else {
+            element.textContent = original;
+          }
+        };
+        window.requestAnimationFrame(tick);
+        observer.unobserve(element);
+      });
+    }, { threshold: 0.45 });
+    newCounters.forEach(function (counter) {
+      counterObserver.observe(counter);
+    });
+  }
 })(window.jQuery, window.bootstrap);
+// PREMIUM FIDELITY REBUILD: BEGIN
+document.querySelectorAll('.fidelity-section').forEach((section) => {
+  section.querySelectorAll('[data-fid-thumb]').forEach((thumb) => {
+    thumb.addEventListener('click', () => {
+      section.querySelectorAll('[data-fid-thumb]').forEach((item) => item.classList.remove('is-active'));
+      thumb.classList.add('is-active');
+      const source = thumb.querySelector('img');
+      const main = section.querySelector('.fid-room-main img');
+      if (source && main) { main.src = source.src; main.alt = source.alt.replace(' thumbnail', ''); }
+    });
+  });
+  section.querySelectorAll('[data-fid-play]').forEach((play) => {
+    play.addEventListener('click', () => {
+      play.classList.toggle('is-playing');
+      play.setAttribute('aria-label', play.classList.contains('is-playing') ? 'Pause hotel film' : 'Play hotel film');
+      play.innerHTML = `<i class="fa-solid ${play.classList.contains('is-playing') ? 'fa-pause' : 'fa-play'}" aria-hidden="true"></i>`;
+    });
+  });
+  section.querySelectorAll('form').forEach((form) => {
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (!form.reportValidity()) return;
+      form.classList.add('is-submitted');
+    });
+  });
+});
+// PREMIUM FIDELITY REBUILD: END
 
+// ROUND 2 EXACT FIDELITY INTERACTIONS: BEGIN
+document.querySelectorAll('.r2-section').forEach((section) => {
+  section.querySelectorAll('form').forEach((form) => {
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (typeof form.reportValidity === 'function' && !form.reportValidity()) return;
+      form.classList.add('is-submitted');
+      let status = form.querySelector('[data-r2-form-status]');
+      if (!status) {
+        status = document.createElement('span');
+        status.dataset.r2FormStatus = '';
+        status.className = 'visually-hidden';
+        status.setAttribute('role', 'status');
+        status.setAttribute('aria-live', 'polite');
+        form.appendChild(status);
+      }
+      status.textContent = 'Request received.';
+    });
+  });
 
+  section.querySelectorAll('[data-r2-tabs]').forEach((tabs) => {
+    const buttons = Array.from(tabs.querySelectorAll('button'));
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => {
+        buttons.forEach((candidate) => {
+          const active = candidate === button;
+          candidate.classList.toggle('is-active', active);
+          candidate.setAttribute('aria-pressed', String(active));
+        });
+      });
+    });
+  });
 
+  section.querySelectorAll('.r2-perfect-days button').forEach((day) => {
+    day.addEventListener('click', () => {
+      section.querySelectorAll('.r2-perfect-days button').forEach((candidate) => {
+        const selected = candidate === day;
+        candidate.classList.toggle('is-selected', selected);
+        candidate.setAttribute('aria-pressed', String(selected));
+      });
+    });
+  });
 
-
+  section.querySelectorAll('[data-r2-play]').forEach((play) => {
+    play.addEventListener('click', () => {
+      const playing = play.classList.toggle('is-playing');
+      play.setAttribute('aria-label', playing ? 'Pause hotel film' : 'Play hotel film');
+      play.innerHTML = `<i class="fa-solid ${playing ? 'fa-pause' : 'fa-play'}" aria-hidden="true"></i>`;
+    });
+  });
+});
+// ROUND 2 EXACT FIDELITY INTERACTIONS: END
